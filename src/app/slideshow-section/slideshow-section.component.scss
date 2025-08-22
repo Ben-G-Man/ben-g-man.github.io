@@ -1,0 +1,18 @@
+.bento-section {
+    background-color: var(--color-light);
+}
+
+.topbar {
+    width: 100%;
+    height: var(--title-height);
+    background-color: var(--color-light);
+}
+
+.window {
+    width: calc(100% - var(--standard-padding) * 2);
+    margin-left: var(--standard-padding);
+    height: calc(100% - var(--title-height) - var(--standard-padding));
+    background-color: var(--color-dark);
+    box-shadow: inset 0px 16px 16px 8px rgba(0,0,0,0.9);
+    border-radius: calc(var(--outer-radius) - var(--standard-padding));
+}

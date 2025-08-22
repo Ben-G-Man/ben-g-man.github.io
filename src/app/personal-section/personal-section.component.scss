@@ -1,0 +1,43 @@
+.title, .thumbnail, .links {
+    width: 100%;
+    margin: none;
+    border: none;
+    padding: none;
+}
+
+.title {
+    height: var(--title-height);
+    background-color: var(--color-foreground);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    a {
+        &:nth-child(1)
+        {
+            text-align: left;
+            display: block;
+            font-size: var(--minor-font-size);
+            font-weight: 500;
+            padding-left: var(--text-padding);
+        }
+
+        &:nth-child(2)
+        {
+            text-align: center;
+            display: block;
+            font-size: var(--major-font-size);
+            font-weight: 400;
+        }
+    }
+}
+
+.thumbnail {
+    height: auto;
+}
+
+.links {
+    flex: 1;
+    background-color: var(--color-foreground);
+    padding-top: calc(var(--text-padding) - var(--standard-padding));
+}
