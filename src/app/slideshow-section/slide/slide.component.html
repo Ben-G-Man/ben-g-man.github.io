@@ -1,0 +1,20 @@
+<div class="container">
+    <img 
+        class="image-pane"
+        src="assets/images/{{project.thumbnail}}"
+        loading="lazy"
+        alt="{{ project.title }}" />
+
+    <div class="text-pane">
+        <h1>{{project.title}}</h1>
+
+        <div class="tag-box">
+            tags:
+            @for (tag of project.tags; track project.tags) {
+            <app-tag-icon [tag]=tag/>
+        }
+        </div>
+        <a class="description">{{project.description}}</a>
+    </div>
+
+</div>

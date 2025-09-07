@@ -1,0 +1,36 @@
+.bubble {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    border-width: 2px;
+    border-color: white;
+    border-style: solid;
+    padding: 4px;
+    border-radius: 9999px; // Cheap hack to quickly make pill shape
+    font-size: var(--small-font-size);
+
+    &.game-dev {
+        border-color: rgb(218, 40, 215);
+        color: rgb(218, 40, 215);
+    }
+
+    &.maker-space {
+        border-color: rgb(215, 62, 28);
+        color: rgb(215, 62, 28);
+    }
+
+    &.dev-ops {
+        border-color: rgb(13, 7, 180);
+        color: rgb(13, 7, 180);
+    }
+
+    &.web {
+        border-color: rgb(113, 52, 224);
+        color: rgb(113, 52, 224);
+    }
+
+    &.data {
+        border-color: rgb(168, 234, 47);
+        color: rgb(168, 234, 47);
+    }
+}

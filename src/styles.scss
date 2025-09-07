@@ -1,23 +1,42 @@
 :root {
     /* ---- Consistent Sizes ---- */
     --title-height: 12vh;
-    --standard-padding: 8px;
+    --standard-padding: 12px;
     --text-padding: 20px;
     --nav-height: 5vh;
-    --slide-height: calc(100vh - var(slide-padding) * 2 - var(title-height) - var(nav-height));
-    --outer-radius: 16px;
-
-    --about-button-move-distance: 20px;
-
-    --major-font-size: 28px;
-    --minor-font-size: 18px;
+    --slide-padding: 60px;
+    --slide-height: calc(100vh - var(--standard-padding) * 3 - var(--slide-padding) * 2 - var(--title-height) - var(--nav-height));
+    --outer-radius: 4px;
+    --main-personal-width: calc((100vw - var(--standard-padding) * 3) * 0.2);
+    --main-slideshow-width: calc((100vw - var(--standard-padding) * 3) * 0.8);
+    --about-button-move-distance: 12px;
 
     /* ---- Colours ---- */
-    --color-dark: #040907;
-    --color-foreground: #16271f;
-    --color-light: #99998D;
+    --color-foreground: #13221A;
+    --color-dark: #060E0B;
+    --color-mid: #0E1812;
+    --color-light: #F0EAD6;
 
+    /* ---- Text ---- */
+    --larger-font-size: 32px;
+    --large-font-size: 28px;
+    --medium-font-size: 18px;
+    --small-font-size: 10px;
+    
     font-family: "Roboto Mono", sans-serif;
+
+    color: var(--color-light);
+    font-size: var(--medium-font-size);
+    
+    h1 {
+        font-weight: 300;
+        font-size: var(--larger-font-size);
+    }
+
+    h2 {
+        font-weight: 400;
+        font-size: var(--large-font-size);
+    }
 }
 
 .bento-section {
@@ -36,8 +55,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--color-dark);
-    color: var(--color-light);
-    font-size: var(--minor-font-size);
 }
 
 .about-button, .about-button:visited  {

@@ -1,11 +1,11 @@
 .bento-section {
-    background-color: var(--color-light);
+    background-color: var(--color-mid);
 }
 
 .topbar {
     width: 100%;
     height: var(--title-height);
-    background-color: var(--color-light);
+    background-color: var(--color-mid);
 }
 
 .window {
@@ -15,4 +15,15 @@
     background-color: var(--color-dark);
     box-shadow: inset 0px 16px 16px 8px rgba(0,0,0,0.9);
     border-radius: calc(var(--outer-radius) - var(--standard-padding));
+    overflow: scroll;
+
+    .reel {
+        padding-top: var(--slide-padding);
+        display: flex;
+
+        app-slide {
+            margin-left: var(--slide-padding);
+            margin-right: var(--slide-padding);
+        }
+    }
 }

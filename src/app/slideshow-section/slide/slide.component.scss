@@ -1,0 +1,31 @@
+.container {
+    position: relative;
+    height: var(--slide-height);
+    width: calc(var(--main-slideshow-width) - 2 * var(--slide-padding) - 2 * var(--standard-padding));
+    background-color: var(--color-foreground);
+    display: flex;
+    flex-direction: row;
+}
+
+.image-pane {
+    height: 100%;
+    flex-grow: 0;
+}
+
+.text-pane {
+    padding: var(--standard-padding);
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        margin: 0;
+    }
+
+    .tag-box {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        margin-top: var(--standard-padding);
+        margin-bottom: var(--standard-padding);
+    }
+}

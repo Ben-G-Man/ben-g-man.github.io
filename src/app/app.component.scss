@@ -9,12 +9,12 @@
 }
 
 .main-personal {   
-    width: calc((100vw - var(--standard-padding) * 3) * 0.2);
+    width: var(--main-personal-width);
     display: block;
 }
 
 .main-slideshow {   
-    width: calc((100vw - var(--standard-padding) * 3) * 0.8);
+    width: var(--main-slideshow-width);
 }
 
 .main-slideshow, .main-personal {
