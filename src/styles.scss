@@ -3,29 +3,39 @@
     --title-height: 12vh;
     --standard-padding: 12px;
     --text-padding: 20px;
-    --nav-height: 5vh;
+    --timeline-height: 5vh;
     --slide-padding: 60px;
-    --slide-height: calc(100vh - var(--standard-padding) * 3 - var(--slide-padding) * 2 - var(--title-height) - var(--nav-height));
+    --slide-height: calc(100vh - var(--standard-padding) * 3 - var(--slide-padding) * 2 - var(--title-height) - var(--timeline-height));
     --outer-radius: 4px;
     --main-personal-width: calc((100vw - var(--standard-padding) * 3) * 0.2);
     --main-slideshow-width: calc((100vw - var(--standard-padding) * 3) * 0.8);
     --about-button-move-distance: 12px;
 
-    /* ---- Colours ---- */
-    --color-foreground: #13221A;
-    --color-dark: #060E0B;
-    --color-mid: #0E1812;
-    --color-light: #F0EAD6;
+    /* ---- Colours ----
+    NOTE: Stored as raw values so that alpha can be added */
+    --color-foreground: 19, 34, 26;
+    --color-dark: 6, 14, 11;
+    --color-mid: 14, 24, 18;
+    --color-light: 240, 234, 214;
+
+    /* ---- Materiality ---- */
+    --far-shadow: 10px 16px 16px 8px rgba(0,0,0,0.9);
+    --near-shadow: 5px 8px 8px 4px rgba(0,0,0,0.4);
+
+    /* ---- Animation ---- */
+    --button-transition: 0.2s ease-in-out;
+    --button-click-transition: 0.1s ease-out;
+    --reel-change-time: 0.4s;
 
     /* ---- Text ---- */
     --larger-font-size: 32px;
     --large-font-size: 28px;
     --medium-font-size: 18px;
-    --small-font-size: 10px;
+    --small-font-size: 14px;
     
     font-family: "Roboto Mono", sans-serif;
 
-    color: var(--color-light);
+    color: rgb(var(--color-light));
     font-size: var(--medium-font-size);
     
     h1 {
@@ -46,6 +56,7 @@
     width: 100%;
     height: 100%;
     border-radius: var(--outer-radius);
+    box-shadow: var(--near-shadow);
 }
 
 body {
@@ -54,7 +65,7 @@ body {
     overflow: scroll;
     margin: 0;
     padding: 0;
-    background-color: var(--color-dark);
+    background-color: rgb(var(--color-dark));
 }
 
 .about-button, .about-button:visited  {
@@ -65,11 +76,11 @@ body {
     padding-top: calc(var(--text-padding) / 2);
     padding-bottom: calc(var(--text-padding) / 2);
     border-bottom-width: 2px;
-    border-bottom-color: var(--color-dark);
+    border-bottom-color: rgb(var(--color-dark));
     border-bottom-style: solid;
     cursor: pointer;
-    transition: 0.5s ease-in-out;
-    color: var(--color-light);
+    transition: var(--button-transition);
+    color: rgb(var(--color-light));
     text-decoration: none;
 
     &:last-child {
@@ -78,7 +89,53 @@ body {
 }
 
 .about-button:hover {
-    transition: 0.5s ease-in-out;
     padding-left: var(--about-button-move-distance);
     width: calc(100% - 2 * var(--text-padding) - var(--about-button-move-distance));
+}
+
+.slide-nav-button {
+    transition: var(--button-transition);
+    height: var(--slide-padding);
+    width: var(--slide-padding);
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: var(--far-shadow);
+    border: 0;
+    background-color: rgb(var(--color-foreground));
+    color: rgb(var(--color-light));
+    cursor: pointer;
+
+    mat-icon {
+        transition: var(--button-transition);
+        font-weight: 400;
+        font-size: calc(var(--slide-padding) * 0.6);
+        width: calc(var(--slide-padding) * 0.6);
+        height: calc(var(--slide-padding) * 0.6);
+    }
+
+    &.inactive {
+        transition: var(--button-transition);
+        cursor: default;
+        box-shadow: var(--near-shadow);
+        transform: translateY(4px);
+        background-color: rgb(var(--color-mid));
+        
+        mat-icon {
+            opacity: 0.3;
+        }
+    }
+}
+
+.slide-nav-button:not(.inactive):hover {
+    mat-icon {
+        transition: var(--button-transition);
+        transform: translateY(calc(var(--slide-padding) * -0.1));
+    }
+}
+
+.slide-nav-button:not(.inactive):active {
+    mat-icon {
+        transform: translateY(0px);
+        transition: var(--button-click-transition);
+    }
 }

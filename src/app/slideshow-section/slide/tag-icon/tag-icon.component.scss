@@ -2,35 +2,41 @@
     display: inline-block;
     width: auto;
     height: auto;
+    min-width: 12.8px;
     border-width: 2px;
-    border-color: white;
+    border-color: rgb(205, 219, 199);
+    color: rgb(205, 219, 199);
     border-style: solid;
-    padding: 4px;
+    text-align: center;
+    padding-top: 1px;
+    padding-bottom: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
     border-radius: 9999px; // Cheap hack to quickly make pill shape
     font-size: var(--small-font-size);
 
     &.game-dev {
-        border-color: rgb(218, 40, 215);
-        color: rgb(218, 40, 215);
+        border-color: rgb(196, 100, 209);
+        color: rgb(196, 100, 209);
     }
 
     &.maker-space {
-        border-color: rgb(215, 62, 28);
-        color: rgb(215, 62, 28);
+        border-color: rgb(226, 67, 112);
+        color: rgb(226, 67, 112);
     }
 
     &.dev-ops {
-        border-color: rgb(13, 7, 180);
-        color: rgb(13, 7, 180);
+        border-color: rgb(90, 39, 200);
+        color: rgb(90, 39, 200);
     }
 
     &.web {
-        border-color: rgb(113, 52, 224);
-        color: rgb(113, 52, 224);
+        border-color: rgb(146, 69, 208);
+        color: rgb(146, 69, 208);
     }
 
     &.data {
-        border-color: rgb(168, 234, 47);
-        color: rgb(168, 234, 47);
+        border-color: rgb(177, 221, 94);
+        color: rgb(177, 221, 94);
     }
 }

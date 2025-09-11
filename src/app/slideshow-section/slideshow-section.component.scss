@@ -1,29 +1,158 @@
+root {
+    --reel-index: 0; // This is modified at runtime to transform the reel position
+}
+
 .bento-section {
-    background-color: var(--color-mid);
+    background-color: rgb(var(--color-mid));
 }
 
 .topbar {
     width: 100%;
     height: var(--title-height);
-    background-color: var(--color-mid);
+    background-color: rgb(var(--color-mid));
 }
 
 .window {
-    width: calc(100% - var(--standard-padding) * 2);
+    --window-width: calc(var(--main-slideshow-width) - var(--standard-padding) * 2);
+    width: var(--window-width);
     margin-left: var(--standard-padding);
     height: calc(100% - var(--title-height) - var(--standard-padding));
-    background-color: var(--color-dark);
-    box-shadow: inset 0px 16px 16px 8px rgba(0,0,0,0.9);
+    background-color: rgb(var(--color-dark));
     border-radius: calc(var(--outer-radius) - var(--standard-padding));
-    overflow: scroll;
+    overflow: hidden;
+    position: relative;
+
+    .fade-out, .shadow {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .fade-out {
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+
+        div {
+            width: calc(3 * var(--slide-padding));
+            height: 100%;
+        
+            &:first-of-type {                
+                background-image: linear-gradient(-90deg, rgba(var(--color-dark), 0), rgba(var(--color-dark), 0.6));
+            }
+
+            &:last-of-type {
+                background-image: linear-gradient(90deg, rgba(var(--color-dark), 0), rgba(var(--color-dark), 0.6));
+            }
+        }
+    }
+
+    .shadow {
+        z-index: 2;
+        box-shadow: inset var(--far-shadow);
+    }
+
+    .nav-buttons {
+        left: var(--slide-padding);
+        width: calc(100% - 2 * var(--slide-padding));
+        height: 100%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 2;
+        pointer-events: none;
+
+        button {
+            border: 1px; // Fixes inconsistent shadow rendering
+            border-style: solid;
+            border-color: rgb(var(--color-mid));
+            pointer-events: all;
+        }
+    }
 
     .reel {
+        margin-left: calc(-1* var(--window-width) * var(--reel-index));
         padding-top: var(--slide-padding);
+        padding-bottom: var(--slide-padding);
         display: flex;
+        transition-duration: var(--reel-change-time);
+        z-index: 0;
 
         app-slide {
-            margin-left: var(--slide-padding);
-            margin-right: var(--slide-padding);
+            margin-left: calc(var(--slide-padding) * 3);
+            margin-right: calc(var(--slide-padding) * 3);
+        }
+    }
+
+    .timeline {
+        width: 100%;
+        height: var(--timeline-height);
+        text-align: center;
+        position: relative;
+        z-index: 3;
+
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 20%;
+            background-color: rgb(var(--color-light));
+            transition: var(--reel-change-time);
+        }
+
+        .years {
+            position: absolute;
+            top: 30%;
+            height: 40%;
+            width: 100%;
+            display: flex;
+            align-content: center;
+        }
+
+        .year {
+            box-sizing: border-box;
+            border-left-style: solid;
+            border-left-color: rgba(var(--color-light), 0.5);
+            border-left-width: 2px;
+            cursor: pointer;
+            position: relative;
+
+            span {
+                position: absolute;
+                top: 0;
+                line-height: 100%;
+                font-style: italic;
+                font-size: var(--small-font-size);
+                color: rgb(var(--color-light));
+                opacity: 0.5;
+                left: 50%;
+                transform: translateX(-50%);
+                transition: var(--button-transition);
+                user-select: none;
+            }
+
+            &:hover:not(.selected) span {
+                top: -50%;
+                opacity: 1;
+            }
+
+            &:active:not(.selected) span {
+                top: 0;
+                transition: var(--button-click-transition);
+                opacity: 1;
+            }
+
+            &:first-of-type {
+                border: none
+            }
+
+            &.selected span {
+                font-size: var(--medium-font-size);
+                top: -50%;
+                opacity: 1;
+            }
         }
     }
 }

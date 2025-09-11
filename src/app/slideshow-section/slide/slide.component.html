@@ -8,12 +8,17 @@
     <div class="text-pane">
         <h1>{{project.title}}</h1>
 
-        <div class="tag-box">
-            tags:
+        <div class="header-section">
+            <a class="section-label">Tags:</a>
             @for (tag of project.tags; track project.tags) {
-            <app-tag-icon [tag]=tag/>
-        }
+                <app-tag-icon [tag]=tag/>
+            }
         </div>
+
+        <div class="header-section">
+            <a class="section-label">Nov 25 → Dec 26</a>
+        </div>
+
         <a class="description">{{project.description}}</a>
     </div>
 

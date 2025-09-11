@@ -49,6 +49,8 @@ export interface ProjectSection {
 export interface Project {
     id: string; // unique key for routing
     title: string;
+    startDate: Date;
+    endDate: Date | null;
     thumbnail: string;
     description: string;
     tags: ProjectTag[];

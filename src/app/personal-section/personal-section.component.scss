@@ -7,7 +7,7 @@
 
 .title {
     height: var(--title-height);
-    background-color: var(--color-foreground);
+    background-color: rgb(var(--color-foreground));
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,6 +38,6 @@
 
 .links {
     flex: 1;
-    background-color: var(--color-foreground);
+    background-color: rgb(var(--color-foreground));
     padding-top: calc(var(--text-padding) - var(--standard-padding));
 }
