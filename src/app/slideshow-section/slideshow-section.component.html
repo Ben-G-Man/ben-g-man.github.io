@@ -36,7 +36,7 @@
             @for (project of slideshowService.filteredProjects; track project.id) {
                 <app-slide [project]=project></app-slide>
             } @empty {
-                <a>Wow, that's niche.</a>
+                <a class="empty-text">wow, that's niche.</a>
             }
         </div>
 

@@ -15,6 +15,7 @@ export class SlideshowService {
     /* Filter */
     private _filterStartDate: Date = new Date();
     private _filterEndDate: Date = new Date();
+    private _tagFilters: ProjectTag[] = [];
 
     filterStartYear: number = 0;
     filterEndYear: number = 0;
@@ -76,6 +77,7 @@ export class SlideshowService {
     private _setFilterDefaults(): void {
         this._filterStartDate = this._getEarliestProject(this._projectService.getProjects())?.startDate ?? new Date(2020);
         this._filterEndDate = this._getLatestProject(this._projectService.getProjects())?.startDate ?? new Date();
+        this._tagFilters = Object.values(ProjectTag);
     }
 
     private _refreshYearFilters(): void {
@@ -106,7 +108,7 @@ export class SlideshowService {
     }
 
     private _filterTags(projects: Project[]): Project[] {
-        return projects.filter(p => p.tags.includes(ProjectTag.Angular)); // TODO actually implement this...
+        return projects.filter(p => p.tags.filter(v =>this._tagFilters.includes(v)).length > 0);
     }
 
     private _filterDates(projects: Project[]): Project[] {

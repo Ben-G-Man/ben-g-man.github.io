@@ -98,6 +98,14 @@ root {
             margin-left: calc(var(--slide-padding) * 3);
             margin-right: calc(var(--slide-padding) * 3);
         }
+        .empty-text {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            font-size: var(--large-font-size);
+            color: rgba(var(--color-light), 0.4);
+        }
     }
 
     .timeline {
