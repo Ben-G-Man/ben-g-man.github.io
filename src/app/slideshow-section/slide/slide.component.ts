@@ -15,10 +15,17 @@ export class SlideComponent {
     projectDatesText: string = "";
 
     ngOnInit(): void {
-        if (this.project.endDate == null || this.project.endDate.getFullYear() == this.project.startDate.getFullYear()) {
-            this.projectDatesText = this.project.startDate.getFullYear().toString();
+        let startDate: Date = this.project.startDate;
+        let endDate: Date | null = this.project.endDate;
+
+        if (endDate == null || this._getFormattedDate(startDate) == this._getFormattedDate(endDate)) {
+            this.projectDatesText = this._getFormattedDate(startDate);
         } else {
-            this.projectDatesText = this.project.startDate.getFullYear().toString() + " → " + this.project.endDate.getFullYear.toString();
+            this.projectDatesText = this._getFormattedDate(startDate) + " → " + this._getFormattedDate(endDate);
         }
+    }
+
+    private _getFormattedDate(date: Date): string {
+        return date.toLocaleString('default', { month: 'short' }) + " " + date.getFullYear().toString();
     }
 }
