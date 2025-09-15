@@ -1,0 +1,7 @@
+<ul>
+    @for (item of selections; track selections) {
+        <li (click)="onClick(item)">{{item}}</li>
+    } @empty {
+        <a class="empty">nothing to show</a>
+    }
+</ul>

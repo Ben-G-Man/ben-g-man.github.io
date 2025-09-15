@@ -13,19 +13,22 @@
 
     /* ---- Colours ----
     NOTE: Stored as raw values so that alpha can be added */
-    --color-foreground: 19, 34, 26;
-    --color-dark: 6, 14, 11;
-    --color-mid: 14, 24, 18;
-    --color-light: 240, 234, 214;
+    --color-foreground: 33, 51, 42;
+    --color-dark: 8, 14, 11;
+    --color-mid: 21, 33, 27;
+    --color-light: 242, 238, 230;
 
     /* ---- Materiality ---- */
-    --far-shadow: 10px 16px 16px 8px rgba(0,0,0,0.9);
+    --far-shadow-offset: 16px;
+    --far-shadow-blur: 16px;
+    --far-shadow: 10px var(--far-shadow-offset) var(--far-shadow-blur) rgba(0,0,0,0.9);
     --near-shadow: 5px 8px 8px 4px rgba(0,0,0,0.4);
 
     /* ---- Animation ---- */
     --button-transition: 0.2s ease-in-out;
     --button-click-transition: 0.1s ease-out;
     --reel-change-time: 0.4s;
+    --dropdown-transition: 0.25s ease-in;
 
     /* ---- Text ---- */
     --larger-font-size: 32px;

@@ -10,6 +10,20 @@ root {
     width: 100%;
     height: var(--title-height);
     background-color: rgb(var(--color-mid));
+    display: flex;
+    position: relative;
+    font-size: var(--medium-font-size);
+    color: var(--color-light);
+    align-items: center;
+
+    app-slideshow-filter, .text-segment {
+        margin-left: var(--standard-padding);
+    }
+
+    .text-segment {
+        height: 100%;
+        align-content: center;
+    }
 }
 
 .window {

@@ -1,0 +1,44 @@
+.filter {
+    border-radius: var(--outer-radius);
+    padding-left: 8px;
+    background-color: rgb(var(--color-light));
+    color: rgb(var(--color-dark));
+    font-weight: bold;
+    position: relative;
+    display: flex;
+    align-items: end;
+    user-select: none;
+
+    mat-icon {
+        transition: 0.1s;
+        line-height: 100%;
+        text-align: center;
+    }
+
+    .toggle-button {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+
+    app-drop-down-container {
+        z-index: 6;
+        pointer-events: none;
+        opacity: 0;
+    }
+
+    &.focused {
+        mat-icon {
+            transition: 0.1s;
+            transform: scaleY(-1);
+        }
+
+        app-drop-down-container {
+            pointer-events: all;
+            opacity: 1;
+        }
+    }
+}

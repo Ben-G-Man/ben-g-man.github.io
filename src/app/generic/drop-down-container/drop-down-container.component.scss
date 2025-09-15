@@ -1,0 +1,23 @@
+.container {
+    top: calc(100%);
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+
+    .arrow {
+        width: calc(var(--standard-padding) * 2);
+        height: calc(var(--standard-padding));
+        clip-path: polygon(50% 4px, 0% 100%, 100% 100%);
+        background-color: rgb(var(--color-light));
+        margin-left: calc(50% - var(--standard-padding));
+    }
+
+    .content {
+        padding: var(--standard-padding);
+        border: 3px solid rgb(var(--color-light));
+        background-color: rgb(var(--color-dark));
+        color: rgb(var(--color-light));
+        border-radius: var(--outer-radius);
+        box-shadow: var(--far-shadow);
+    }
+}

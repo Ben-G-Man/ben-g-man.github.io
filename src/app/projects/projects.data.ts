@@ -65,7 +65,7 @@ export const PROJECTS: Project[] = [
     {
         id: 'test',
         title: 'Test Item',
-        startDate: new Date(2025, 0, 0, 0, 0, 0, 0),
+        startDate: new Date(2025, 1, 0, 0, 0, 0, 0),
         endDate: null,
         thumbnail: 'placeholder.png',
         description: 'early 2025.',
@@ -85,7 +85,7 @@ export const PROJECTS: Project[] = [
     {
         id: 'test',
         title: 'Test Item',
-        startDate: new Date(2024, 0, 0, 0, 0, 0, 0),
+        startDate: new Date(2024, 1, 0, 0, 0, 0, 1),
         endDate: null,
         thumbnail: 'placeholder.png',
         description: 'Early 2024',
