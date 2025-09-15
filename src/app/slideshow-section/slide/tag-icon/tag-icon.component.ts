@@ -24,6 +24,7 @@ export class TagIconComponent {
             case ProjectTag.CAD:
             case ProjectTag.Fusion:
             case ProjectTag.Illustrator:
+            case ProjectTag.Electrical:
                 return "maker-space";
             case ProjectTag.Docker:
                 return "dev-ops";

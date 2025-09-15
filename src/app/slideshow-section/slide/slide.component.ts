@@ -18,8 +18,10 @@ export class SlideComponent {
         let startDate: Date = this.project.startDate;
         let endDate: Date | null = this.project.endDate;
 
-        if (endDate == null || this._getFormattedDate(startDate) == this._getFormattedDate(endDate)) {
-            this.projectDatesText = this._getFormattedDate(startDate);
+        if (endDate == null) {
+            this.projectDatesText = this.projectDatesText = this._getFormattedDate(startDate) + " → (ongoing)";
+        } else if (this._getFormattedDate(startDate) == this._getFormattedDate(endDate)) {
+            this.projectDatesText = this._getFormattedDate(startDate);            
         } else {
             this.projectDatesText = this._getFormattedDate(startDate) + " → " + this._getFormattedDate(endDate);
         }

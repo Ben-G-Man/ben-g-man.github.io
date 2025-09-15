@@ -6,6 +6,9 @@ export enum ProjectTag {
     Cpp = 'C++',
     C = 'C',
     Python = 'Python',
+    Commission = 'Commission',
+    University = 'University',
+    Electrical = 'Circuit Work',
 
     /* -- Maker Space -- */
     FDM = '3D Printing',

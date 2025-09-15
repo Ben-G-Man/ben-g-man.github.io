@@ -47,7 +47,7 @@
     .description {
         background-color: rgb(var(--color-mid));
         flex: 1;
-        box-shadow: inset var(--);
+        overflow: scroll;
         box-shadow: inset var(--near-shadow);
     }
 }
