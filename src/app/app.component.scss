@@ -8,7 +8,7 @@
     overflow: hide;
 }
 
-.main-personal {   
+.main-personal {
     width: var(--main-personal-width);
     display: block;
 }
@@ -19,4 +19,23 @@
 
 .main-slideshow, .main-personal {
     height: calc(100vh - var(--standard-padding) * 2);
+}
+
+/* Phone */
+@media (max-width: 767px) {
+    .landing-page {
+        flex-direction: column;
+    }
+
+    .main-personal {
+        height: var(--main-personal-height);
+        width: 100%;
+    }
+
+    .main-slideshow {   
+        height: var(--main-slideshow-height);
+        position: fixed;
+        top: calc(var(--main-personal-height) + 2 * var(--standard-padding));
+        width: 100%;
+    }
 }

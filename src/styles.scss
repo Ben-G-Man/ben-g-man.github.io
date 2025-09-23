@@ -1,15 +1,26 @@
 :root {
     /* ---- Consistent Sizes ---- */
     --title-height: 12vh;
-    --standard-padding: 12px;
+    --standard-padding: 8px;
     --text-padding: 20px;
     --timeline-height: 5vh;
     --slide-padding: 60px;
     --slide-height: calc(100vh - var(--standard-padding) * 3 - var(--slide-padding) * 2 - var(--title-height) - var(--timeline-height));
-    --outer-radius: 4px;
+    --outer-radius: 8px;
+    --inner-once-radius: calc(var(--outer-radius) - var(--standard-padding));
+    --inner-twice-radius: calc(var(--inner-once-radius) - var(--standard-padding));
     --main-personal-width: calc((100vw - var(--standard-padding) * 3) * 0.2);
     --main-slideshow-width: calc((100vw - var(--standard-padding) * 3) * 0.8);
     --about-button-move-distance: 12px;
+    --main-personal-height: calc(var(--large-font-size) + 2 * var(--standard-padding)); // Only applies to mobile view
+    --main-slideshow-height: calc(100vh - var(--main-personal-height) - 3 * var(--standard-padding)); // Only applies to mobile view
+    
+    /* Phone */
+    @media (max-width: 767px) {
+        --standard-padding: 8px;
+        --slide-height: calc(100% - 2 * var(--slide-padding));
+        --outer-radius: calc(var(--main-personal-height) / 2);
+    }
 
     /* ---- Colours ----
     NOTE: Stored as raw values so that alpha can be added */
@@ -31,10 +42,18 @@
     --dropdown-transition: 0.25s ease-in;
 
     /* ---- Text ---- */
-    --larger-font-size: 32px;
-    --large-font-size: 28px;
-    --medium-font-size: 18px;
-    --small-font-size: 14px;
+    --larger-font-size: 4.0vmin;
+    --large-font-size: 4.0vmin;
+    --medium-font-size: 2.25vmin;
+    --small-font-size: 1.8vmin;
+
+    /* Phone */
+    @media (max-width: 767px) {
+        --larger-font-size: 7.0vmin;
+        --large-font-size: 5.5vmin;
+        --medium-font-size: 4.0vmin;
+        --small-font-size: 2.5vmin;
+    }
     
     font-family: "Roboto Mono", sans-serif;
 
@@ -44,6 +63,10 @@
     h1 {
         font-weight: 300;
         font-size: var(--larger-font-size);
+        font-weight: 500;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
     h2 {
@@ -79,7 +102,7 @@ body {
     padding-top: calc(var(--text-padding) / 2);
     padding-bottom: calc(var(--text-padding) / 2);
     border-bottom-width: 2px;
-    border-bottom-color: rgb(var(--color-dark));
+    border-bottom-color: rgba(var(--color-dark), 0.5);
     border-bottom-style: solid;
     cursor: pointer;
     transition: var(--button-transition);

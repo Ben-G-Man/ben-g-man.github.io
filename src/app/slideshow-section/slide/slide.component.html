@@ -1,24 +1,36 @@
 <div class="container">
-    <img 
-        class="image-pane"
-        src="assets/images/{{project.thumbnail}}"
-        alt="{{ project.title }}" />
 
-    <div class="text-pane">
+    <div class="image-pane">
+        
+        <img 
+            src="assets/images/{{project.thumbnail}}"
+        />
+
+        
+        <img 
+            src="assets/images/{{project.thumbnail}}"
+            alt="No image available for {{ project.title }}"
+        />
+
+    </div>
+
+    <div class="meta-data">
         <h1>{{project.title}}</h1>
 
-        <div class="header-section">
+        <div class="secondary">
             <a class="section-label">Tags:</a>
-            @for (tag of project.tags; track project.tags) {
-                <app-tag-icon [tag]=tag/>
-            }
+            <div class="tags-section">
+                @for (tag of project.tags; track project.tags) {
+                    <app-tag-icon [tag]=tag/>
+                }
+            </div>
         </div>
 
-        <div class="header-section">
+        <div>
             <a class="section-label">{{projectDatesText}}</a>
         </div>
-
-        <a class="description">{{project.description}}</a>
     </div>
+
+    <a class="description">{{project.description}}</a>
 
 </div>

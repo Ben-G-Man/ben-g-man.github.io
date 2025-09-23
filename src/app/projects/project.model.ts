@@ -2,13 +2,21 @@ export enum ProjectTag {
     /* -- Ungrouped -- */
     OpenGL = 'OpenGL',
     GPT = 'Chat GPT',
+    PromptEngineering = 'Prompt Engineering',
     Java = 'Java',
+    JavaFX = 'JavaFX',
     Cpp = 'C++',
     C = 'C',
     Python = 'Python',
     Commission = 'Commission',
     University = 'University',
     Electrical = 'Circuit Work',
+    MeshLab = 'Mesh Lab',
+    DataProcessing = 'Raw Data Processing',
+    PixelArt = 'Pixel Art',
+    Modeling = '3D Modeling',
+    Csharp = 'C#',
+    Kivy = 'Kivy',
 
     /* -- Maker Space -- */
     FDM = '3D Printing',
@@ -35,6 +43,7 @@ export enum ProjectTag {
     CSS = 'CSS3',
     TS = 'TypeScript',
     JS = 'JavaScript',
+    PHP = 'PHP',
 
     /* -- Data -- */
     MySQL = 'MySQL',

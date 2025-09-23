@@ -1,8 +1,16 @@
-<div class="bento-section">
-    <div class="title">
+<div class="bento-section" [class.open]="openMenu">
+    <div class="title" (click)="handleTitleClick()">
         <div class="title-text">
-            <a>👋 hi! i’m</a>
+            <a>👋 hi! I’m</a>
             <a>benji!</a>
+            <div class="menu-button"  [class.close]="openMenu">
+                <mat-icon>
+                    menu
+                </mat-icon>
+                <mat-icon>
+                    close
+                </mat-icon>
+            </div>
         </div>
     </div>
     <img src="assets/images/landing/landing.jpg" class="thumbnail" />
@@ -13,3 +21,5 @@
         <a class="about-button" target="_blank" href="mailto:ben697hume@gmail.com?subject=Following%20up%20your%20portfolio%20website&body=Kia%20ora%2C%0A%0AI%20am%20reaching%20out%20after%20taking%20a%20look%20at%20your%20portfolio.%0A%0AWarm%20regards.">✉️ email</a>
     </div>    
 </div>
+
+<div class="frosting" [class.hidden]="!openMenu"></div>

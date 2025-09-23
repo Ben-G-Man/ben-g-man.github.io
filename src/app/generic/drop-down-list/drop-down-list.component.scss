@@ -13,6 +13,7 @@ li {
     cursor: pointer;
     line-height: calc(var(--medium-font-size) + 6px);
     transition: var(--button-transition);
+    border-radius: var(--inner-once-radius);
 
     &:not(:first-child) {
         margin-top: var(--standard-padding);
