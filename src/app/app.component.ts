@@ -6,11 +6,13 @@ import { GreetingsBoxComponent } from "./box-content/greetings-box/greetings-box
 import { LinksBoxComponent } from "./box-content/links-box/links-box.component";
 import { FiltersBoxComponent } from "./box-content/filters-box/filters-box.component";
 import { SlideshowBoxComponent } from "./box-content/slideshow-box/slideshow-box.component";
+import { MenuButtonBoxComponent } from "./box-content/menu-button-box/menu-button-box.component";
+import { FrostingService } from './generic/frosting-service';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [RouterOutlet, GreetingsBoxComponent, LinksBoxComponent, FiltersBoxComponent, SlideshowBoxComponent],
+    imports: [RouterOutlet, GreetingsBoxComponent, LinksBoxComponent, FiltersBoxComponent, SlideshowBoxComponent, MenuButtonBoxComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })
@@ -20,6 +22,7 @@ export class AppComponent {
     constructor(
         private matIconReg: MatIconRegistry,
         private uiService: UiService,
+        public frostingService: FrostingService
     ) { }
 
     @HostListener('document:click', ['$event.target'])

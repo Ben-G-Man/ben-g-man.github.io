@@ -1,1 +1,8 @@
-<div class="frosting" [class.hidden]="!openMenu"></div>g
+<div (click)="handleTitleClick()" class="menu-button" [class.close]="frostingService.openMenu">
+    <mat-icon>
+        menu
+    </mat-icon>
+    <mat-icon>
+        close
+    </mat-icon>
+</div>

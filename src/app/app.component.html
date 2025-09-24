@@ -1,9 +1,17 @@
 <main class="main">
-  <app-greetings-box class="box title"></app-greetings-box>
-  <img class="box thumbnail" src="assets/images/landing/landing.jpg"/>
-  <app-links-box class="box links"></app-links-box>
-  <app-filters-box class="box filters"></app-filters-box>
-  <app-slideshow-box class="box slideshow"></app-slideshow-box>
+    <div class="frosting" [class.hidden]="!frostingService.openMenu"></div>
+
+    <div class="popup" [class.hidden]="!frostingService.openMenu">
+        <h1>My links!</h1>
+        <app-links-box class="links"></app-links-box>
+    </div>
+
+    <app-menu-button-box class="box menu-button"></app-menu-button-box>
+    <app-greetings-box class="box title"></app-greetings-box>
+    <img class="box thumbnail" src="assets/images/landing/landing.jpg" />
+    <app-links-box class="box links"></app-links-box>
+    <app-filters-box class="box filters"></app-filters-box>
+    <app-slideshow-box class="box slideshow"></app-slideshow-box>
 </main>
 
 <router-outlet />

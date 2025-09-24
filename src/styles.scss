@@ -10,6 +10,9 @@ body {
 :root {
     /* ---- Sizes ---- */
     --sidebar-width: 18vw;
+    @media (max-width: 1099px) {
+        --sidebar-width: 25vw;
+    }
     --topbar-height: 10vh;
     --standard-padding: 12px;
     --slide-padding: 60px;

@@ -9,8 +9,12 @@
     flex-wrap: wrap;
 
     app-slideshow-filter,
-    .text-segment {
+    .text-segment, .alt-text-segment {
         margin-left: var(--standard-padding);
+    }
+
+    .alt-text-segment {
+        display: none;
     }
 
     .text-segment {
@@ -18,8 +22,19 @@
         align-content: center;
     }
 
+    /* All but laptop */
+    @media (max-width: 1099px) {
+        .text-segment {
+            display: none;
+        }
+
+        .alt-text-segment {
+            display: block;
+        }
+    }
+
     /* Phone */
-    @media (max-width: 767px) {
+    @media (max-width: 799px) {
         height: auto;
         width: calc(100vw - 6 * var(--standard-padding));
         padding: var(--standard-padding);

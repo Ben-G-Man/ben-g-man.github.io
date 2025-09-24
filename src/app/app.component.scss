@@ -19,7 +19,7 @@
 }
 
 /* ---- 'outset' boxes ---- */
-.title, .filters, .thumbnail, .links {
+.title, .filters, .thumbnail, .links, .menu-button, .popup {
     box-shadow: inset var(--under), inset var(--shine), var(--near-shadow);
 }
 
@@ -30,7 +30,7 @@
 }
 
 /* ---- layer 3 boxes ---- */
-.title, .links {
+.title, .links, .menu-button, .popup {
     background-color: rgb(var(--color-layer-3));
 }
 
@@ -58,4 +58,72 @@
 
 .links {
     grid-area: links;
+}
+
+.menu-button {
+    display: none;
+    z-index: 11;
+}
+
+.frosting {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: all;
+    opacity: 1;
+    transition: var(--button-transition);
+
+    &.hidden {
+        pointer-events: none;
+        opacity: 0;
+        transition: var(--button-transition);
+    }
+}
+
+/* ---- Applies to tablets and phones ---- */
+
+@media (max-width: 1099px) {
+    .main {
+        grid-template-columns: var(--topbar-height) var(--sidebar-width) auto;
+        grid-template-rows: var(--topbar-height) auto;
+        grid-template-areas:
+                "menu title filters"
+                "slideshow slideshow slideshow";
+    }
+
+    .menu-button {
+        display: block;
+        grid-area: menu;
+    }
+
+    .box.links, .thumbnail {
+        display: none;
+    }
+
+    .popup {
+        opacity: 1;
+        pointer-events: all;
+        width: 50%;
+        height: 50%;
+        position: fixed;
+        left: 25%;
+        top: 25%;
+        z-index: 11;
+        border-radius: var(--outer-radius);
+        padding: var(--standard-padding);
+
+        h1 {
+            margin-left: var(--standard-padding);
+        }
+
+        &.hidden {
+            opacity: 0;
+            pointer-events: none;            
+        }
+    }
 }

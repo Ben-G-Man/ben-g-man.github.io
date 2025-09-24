@@ -1,20 +1,18 @@
 import { Component } from '@angular/core';
+import { MatIcon } from "@angular/material/icon";
+import { FrostingService } from '../../generic/frosting-service';
 
 @Component({
   selector: 'app-menu-button-box',
   standalone: true,
-  imports: [],
+  imports: [MatIcon],
   templateUrl: './menu-button-box.component.html',
   styleUrl: './menu-button-box.component.scss'
 })
 export class MenuButtonBoxComponent {
-    private _isMobile = window.matchMedia("(max-width: 799px)").matches;
-    openMenu: boolean = false;
+    constructor(public frostingService: FrostingService) {}
 
     handleTitleClick(): void {
-        if (!this._isMobile) return;
-        
-        if (this.openMenu) this.openMenu = false;
-        else this.openMenu = true;
+        this.frostingService.toggle();
     }
 }

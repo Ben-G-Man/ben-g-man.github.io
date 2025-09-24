@@ -1,18 +1,35 @@
-.frosting {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 10;
-    backdrop-filter: blur(6px);
-    pointer-events: all;
-    opacity: 1;
-    transition: var(--button-transition);
+.menu-button {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-content: start;
+    z-index: 11;
 
-    &.hidden {
-        pointer-events: none;
-        opacity: 0;
-        transition: var(--button-transition);
+    &.close {
+        mat-icon:nth-of-type(1) {
+            margin-left: calc(-1 * var(--large-font-size) / 2 - 50% );
+            transition: var(--button-transition);
+        }
+    }
+
+    mat-icon {
+        width: var(--large-font-size);
+        height: var(--large-font-size);
+        margin: calc(50% - var(--large-font-size) / 2);
+        flex-shrink: 0;
+        font-size: var(--large-font-size);
+        color: rgb(var(--color-light));
+
+        &:nth-of-type(1) {
+            transition: var(--button-transition);
+        }
+
+        &:nth-of-type(2) {
+            color: rgb(172, 41, 54);
+        }
     }
 }
