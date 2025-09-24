@@ -1,8 +1,8 @@
 .filter {
     border-radius: var(--outer-radius);
     padding-left: 8px;
-    background-color: rgb(var(--color-light));
-    color: rgb(var(--color-dark));
+    background-color: rgba(var(--color-light), 0.75);
+    color: rgb(var(--color-layer-1));
     font-weight: bold;
     position: relative;
     display: flex;

@@ -1,0 +1,42 @@
+.topbar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    font-size: var(--medium-font-size);
+    color: rgba(var(--color-light), 0.75);
+    align-items: center;
+    flex-wrap: wrap;
+
+    app-slideshow-filter,
+    .text-segment {
+        margin-left: var(--standard-padding);
+    }
+
+    .text-segment {
+        height: 100%;
+        align-content: center;
+    }
+
+    /* Phone */
+    @media (max-width: 767px) {
+        height: auto;
+        width: calc(100vw - 6 * var(--standard-padding));
+        padding: var(--standard-padding);
+        margin: var(--standard-padding);
+        gap: 6px;
+        background-color: rgb(var(--color-layer-1));
+        border-radius: var(--inner-once-radius);
+        justify-content: center;
+
+        .text-segment {
+            height: auto;
+            margin: 0;
+        }
+
+        app-slideshow-filter {
+            height: auto;
+            margin: 0;
+        }
+    }
+}

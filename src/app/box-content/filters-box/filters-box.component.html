@@ -1,0 +1,21 @@
+<div class="topbar">
+    <div class="text-segment">Showing <b>{{slideshowService.filteredProjects.length}}</b> projects with</div>
+
+    <app-slideshow-filter [label]="'custom'">
+        Tags Filter Content
+    </app-slideshow-filter>
+
+    <div class="text-segment">tags between</div>
+
+    <app-slideshow-filter [label]="slideshowService.filterStartYear.toString()">
+        <app-drop-down-list [selections]="getYearsAsStrings()"
+            (onSelection)="handleStartDateSelection($event)"></app-drop-down-list>
+    </app-slideshow-filter>
+
+    <div class="text-segment">and</div>
+
+    <app-slideshow-filter [label]="slideshowService.filterEndYear.toString()">
+        <app-drop-down-list [selections]="getYearsAsStrings()"
+            (onSelection)="handleEndDateSelection($event)"></app-drop-down-list>
+    </app-slideshow-filter>
+</div>

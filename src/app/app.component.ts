@@ -1,15 +1,16 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SlideshowSectionComponent } from './slideshow-section/slideshow-section.component';
-import { PersonalSectionComponent } from './personal-section/personal-section.component';
 import { MatIconRegistry } from '@angular/material/icon';
 import { UiService } from './ui.service';
-import { SlideshowService } from './slideshow-section/slideshow.service';
+import { GreetingsBoxComponent } from "./box-content/greetings-box/greetings-box.component";
+import { LinksBoxComponent } from "./box-content/links-box/links-box.component";
+import { FiltersBoxComponent } from "./box-content/filters-box/filters-box.component";
+import { SlideshowBoxComponent } from "./box-content/slideshow-box/slideshow-box.component";
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [RouterOutlet, SlideshowSectionComponent, PersonalSectionComponent],
+    imports: [RouterOutlet, GreetingsBoxComponent, LinksBoxComponent, FiltersBoxComponent, SlideshowBoxComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })

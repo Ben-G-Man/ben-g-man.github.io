@@ -8,7 +8,7 @@ li {
     list-style-type: none;
     padding-left: var(--standard-padding);
     padding-right: var(--standard-padding);
-    background-color: rgb(var(--color-foreground));
+    background-color: rgb(var(--color-layer-3));
     font-size: var(--medium-font-size);
     cursor: pointer;
     line-height: calc(var(--medium-font-size) + 6px);
@@ -19,12 +19,12 @@ li {
         margin-top: var(--standard-padding);
     }
 
-    --color-foreground-real: rgb(var(--color-foreground));
+    --color-layer-3-real: rgb(var(--color-layer-3));
 
     &:hover {
         line-height: calc(var(--medium-font-size));
         padding-bottom: 6px;
-        background-color: color-mix(in srgb, var(--color-foreground-real), white 15%);
+        background-color: color-mix(in srgb, var(--color-layer-3-real), white 15%);
         transition: var(--button-transition);
     }
 }

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ProjectTag } from '../../../projects/project.model';
+import { ProjectTag } from '../../../../projects/project.model';
 
 @Component({
   selector: 'app-tag-icon',

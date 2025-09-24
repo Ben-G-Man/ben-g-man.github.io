@@ -1,0 +1,142 @@
+root {
+    --reel-index: 0; // This is modified at runtime to transform the reel position
+}
+
+.window {
+    // Defining a set window width and height here for use later on
+    --window-width: calc(100vw - 3 * var(--standard-padding) - var(--sidebar-width));
+    --window-height: calc(100vh - 3 * var(--standard-padding) - var(--topbar-height));
+
+
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+
+    .shadow {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .shadow {
+        z-index: 2;
+        box-shadow: inset var(--far-shadow);
+    }
+
+    .nav-buttons {
+        left: calc(var(--slide-padding) / 2);
+        width: calc(100% - var(--slide-padding));
+        height: 100%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 2;
+        pointer-events: none;
+
+        button {
+            border: 1px; // Fixes inconsistent shadow rendering
+            border-style: solid;
+            border-color: rgb(var(--color-layer-2));
+            pointer-events: all;
+        }
+    }
+
+    .reel {
+        margin-left: calc(-1 * var(--window-width) * var(--reel-index));
+        padding-top: var(--slide-padding);
+        padding-bottom: var(--slide-padding);
+        display: flex;
+        transition-duration: var(--reel-change-time);
+        z-index: 0;
+
+        app-slide {
+            margin-left: calc(var(--slide-padding) * 2);
+            margin-right: calc(var(--slide-padding) * 2);
+            min-width: calc(var(--window-width) - 4 * var(--slide-padding));
+            height: calc(var(--window-height) - 2 * var(--slide-padding) - var(--timeline-height));
+        }
+
+        .empty-text {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            font-size: var(--large-font-size);
+            color: rgba(var(--color-light), 0.4);
+        }
+    }
+
+    .timeline {
+        width: 100%;
+        height: var(--timeline-height);
+        text-align: center;
+        position: absolute;
+        z-index: 3;
+        bottom: 0;
+
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 20%;
+            background-color: rgb(var(--color-light));
+            transition: var(--reel-change-time);
+        }
+
+        .years {
+            position: absolute;
+            top: 30%;
+            height: 40%;
+            width: 100%;
+            display: flex;
+            align-content: center;
+        }
+
+        .year {
+            box-sizing: border-box;
+            border-left-style: solid;
+            border-left-color: rgba(var(--color-light), 0.5);
+            border-left-width: 2px;
+            cursor: pointer;
+            position: relative;
+
+            span {
+                position: absolute;
+                top: 0;
+                line-height: 100%;
+                font-style: italic;
+                font-size: var(--small-font-size);
+                color: rgb(var(--color-light));
+                opacity: 0.5;
+                left: 50%;
+                transform: translateX(-50%);
+                transition: var(--button-transition);
+                user-select: none;
+            }
+
+            &:hover:not(.selected) span {
+                top: -50%;
+                opacity: 1;
+            }
+
+            &:active:not(.selected) span {
+                top: 0;
+                transition: var(--button-click-transition);
+                opacity: 1;
+            }
+
+            &:first-of-type {
+                border: none
+            }
+
+            &.selected span {
+                font-size: var(--medium-font-size);
+                top: -50%;
+                opacity: 1;
+            }
+        }
+    }
+}

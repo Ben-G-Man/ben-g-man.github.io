@@ -1,59 +1,49 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(var(--color-layer-1));
+}
+
 :root {
-    /* ---- Consistent Sizes ---- */
-    --title-height: 12vh;
-    --standard-padding: 8px;
-    --text-padding: 20px;
-    --timeline-height: 5vh;
+    /* ---- Sizes ---- */
+    --sidebar-width: 18vw;
+    --topbar-height: 10vh;
+    --standard-padding: 12px;
     --slide-padding: 60px;
-    --slide-height: calc(100vh - var(--standard-padding) * 3 - var(--slide-padding) * 2 - var(--title-height) - var(--timeline-height));
-    --outer-radius: 8px;
-    --inner-once-radius: calc(var(--outer-radius) - var(--standard-padding));
-    --inner-twice-radius: calc(var(--inner-once-radius) - var(--standard-padding));
-    --main-personal-width: calc((100vw - var(--standard-padding) * 3) * 0.2);
-    --main-slideshow-width: calc((100vw - var(--standard-padding) * 3) * 0.8);
+    --timeline-height: 5vh;
     --about-button-move-distance: 12px;
-    --main-personal-height: calc(var(--large-font-size) + 2 * var(--standard-padding)); // Only applies to mobile view
-    --main-slideshow-height: calc(100vh - var(--main-personal-height) - 3 * var(--standard-padding)); // Only applies to mobile view
-    
-    /* Phone */
-    @media (max-width: 767px) {
-        --standard-padding: 8px;
-        --slide-height: calc(100% - 2 * var(--slide-padding));
-        --outer-radius: calc(var(--main-personal-height) / 2);
-    }
 
-    /* ---- Colours ----
-    NOTE: Stored as raw values so that alpha can be added */
-    --color-foreground: 33, 51, 42;
-    --color-dark: 8, 14, 11;
-    --color-mid: 21, 33, 27;
-    --color-light: 242, 238, 230;
-
-    /* ---- Materiality ---- */
-    --far-shadow-offset: 16px;
-    --far-shadow-blur: 16px;
-    --far-shadow: 10px var(--far-shadow-offset) var(--far-shadow-blur) rgba(0,0,0,0.9);
-    --near-shadow: 5px 8px 8px 4px rgba(0,0,0,0.4);
-
-    /* ---- Animation ---- */
-    --button-transition: 0.2s ease-in-out;
-    --button-click-transition: 0.1s ease-out;
-    --reel-change-time: 0.4s;
-    --dropdown-transition: 0.25s ease-in;
+    /* ---- Rounding ---- */
+    --outer-radius: 8px;
 
     /* ---- Text ---- */
     --larger-font-size: 4.0vmin;
     --large-font-size: 4.0vmin;
     --medium-font-size: 2.25vmin;
     --small-font-size: 1.8vmin;
+    --text-padding: 20px;
 
-    /* Phone */
-    @media (max-width: 767px) {
-        --larger-font-size: 7.0vmin;
-        --large-font-size: 5.5vmin;
-        --medium-font-size: 4.0vmin;
-        --small-font-size: 2.5vmin;
-    }
+    /* ---- Colours ----
+    NOTE: Stored as raw values so that alpha can be added */
+    --color-layer-3: 23, 36, 30;
+    --color-layer-2: 18, 28, 23;
+    --color-layer-1: 8, 14, 11;
+    --color-light: 230, 240, 230;
+
+    /* ---- Shadows ---- */
+    --far-shadow: 0 8px 20px 8px rgba(0, 0, 0, 1);
+    --near-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.5);
+    --shine: 0 4px 4px 0px rgba(225, 252, 239, 0.03);
+    --under: 0 -4px 4px 0px rgba(0, 0, 0, 0.2);
+
+    /* ---- Animation ---- */
+    --button-transition: 0.2s ease-in-out;
+    --button-click-transition: 0.1s ease-out;
+    --reel-change-time: 0.4s;
+    --dropdown-transition: 0.25s ease-in;
     
     font-family: "Roboto Mono", sans-serif;
 
@@ -75,59 +65,15 @@
     }
 }
 
-.bento-section {
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-    width: 100%;
-    height: 100%;
-    border-radius: var(--outer-radius);
-    box-shadow: var(--near-shadow);
-}
-
-body {
-    width: 100vw;
-    height: 100vh;
-    overflow: scroll;
-    margin: 0;
-    padding: 0;
-    background-color: rgb(var(--color-dark));
-}
-
-.about-button, .about-button:visited  {
-    width: calc(100% - 2 * var(--text-padding));
-    display: block;
-    text-align: left;
-    margin-left: var(--text-padding);
-    padding-top: calc(var(--text-padding) / 2);
-    padding-bottom: calc(var(--text-padding) / 2);
-    border-bottom-width: 2px;
-    border-bottom-color: rgba(var(--color-dark), 0.5);
-    border-bottom-style: solid;
-    cursor: pointer;
-    transition: var(--button-transition);
-    color: rgb(var(--color-light));
-    text-decoration: none;
-
-    &:last-child {
-        border: none;
-    }
-}
-
-.about-button:hover {
-    padding-left: var(--about-button-move-distance);
-    width: calc(100% - 2 * var(--text-padding) - var(--about-button-move-distance));
-}
-
 .slide-nav-button {
     transition: var(--button-transition);
     height: var(--slide-padding);
     width: var(--slide-padding);
     text-align: center;
     border-radius: 50%;
-    box-shadow: var(--far-shadow);
+    box-shadow: var(--far-shadow), inset var(--shine), inset var(--under);
     border: 0;
-    background-color: rgb(var(--color-foreground));
+    background-color: rgb(var(--color-layer-3));
     color: rgb(var(--color-light));
     cursor: pointer;
 
@@ -142,9 +88,9 @@ body {
     &.inactive {
         transition: var(--button-transition);
         cursor: default;
-        box-shadow: var(--near-shadow);
+        box-shadow: var(--near-shadow), inset var(--shine), inset var(--under);
         transform: translateY(4px);
-        background-color: rgb(var(--color-mid));
+        background-color: rgb(var(--color-layer-2));
         
         mat-icon {
             opacity: 0.3;

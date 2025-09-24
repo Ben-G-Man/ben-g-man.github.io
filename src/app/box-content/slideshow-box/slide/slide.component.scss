@@ -1,48 +1,13 @@
 .container {
     position: relative;
-    height: var(--slide-height);
-    width: calc(var(--main-slideshow-width) - 4 * var(--slide-padding) - 2 * var(--standard-padding));
-    background-color: rgb(var(--color-foreground));
-    box-shadow: var(--near-shadow);
-    display: grid;
-    border-radius: var(--inner-twice-radius);
-    overflow: scroll;
-}
-
-.image-pane {
     height: 100%;
     width: 100%;
-    position: relative;
-    overflow: hidden;
-    
-    img {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-    }
-
-    img:nth-of-type(1) {
-        object-fit: cover;
-        filter: blur(16px) brightness(40%);
-        background-color: var(--color-mid);
-        top: -10%;
-        left: -10%;
-        width: 120%;
-        height: 120%;
-    }
-    
-    img:nth-of-type(2) {
-        object-fit: contain;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-        font-size: var(--small-font-size);
-        font-style: italic;
-        color: rgba(var(--color-light), 0.5);
-    }
+    background-color: rgb(var(--color-layer-3));
+    box-shadow: var(--near-shadow);
+    display: grid;
+    overflow: scroll;
+    border-radius: var(--outer-radius);
+    box-shadow: inset var(--shine);
 }
 
 .section-label {
@@ -79,7 +44,7 @@
 }
 
 .description {
-    background-color: rgb(var(--color-mid));
+    background-color: rgb(var(--color-layer-2));
     box-shadow: inset var(--near-shadow);
     padding: var(--standard-padding);
     text-align: justify;
@@ -96,7 +61,7 @@
             "image second";
     }
 
-    .image-pane {
+    app-forced-size-image {
         grid-area: image;
     }
 
@@ -110,7 +75,7 @@
 }
 
 /* Tablet */
-@media (min-width: 768px) and (max-width: 1279px) {
+@media (min-width: 800px) and (max-width: 1279px) {
     .container {
         grid-template-columns: 1fr 2fr;
         grid-template-rows: 1fr 8fr;
@@ -119,7 +84,7 @@
             "second second";
     }
 
-    .image-pane {
+    app-forced-size-image {
         grid-area: image;
         width: 100%;
         height: 100%;
@@ -137,7 +102,7 @@
 }
 
 /* Phone */
-@media (max-width: 767px) {
+@media (max-width: 799px) {
     .container {
         grid-template-columns: auto auto auto;
         grid-template-rows: auto auto auto;
@@ -146,10 +111,9 @@
             "first"
             "second";
         width: calc(100vw - 6 * var(--standard-padding));
-        height: var(--slide-height);
     }
 
-    .image-pane {
+    app-forced-size-image {
         grid-area: image;
         width: 100%;
         height: 100%;
@@ -173,6 +137,4 @@
     .tags-section {
         gap: 4px;
     }
-
-
 }

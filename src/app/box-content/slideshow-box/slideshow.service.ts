@@ -1,6 +1,6 @@
 import { ElementRef, Injectable } from '@angular/core';
-import { Project, ProjectTag } from '../projects/project.model';
-import { ProjectService } from '../projects/project.service';
+import { Project, ProjectTag } from '../../projects/project.model';
+import { ProjectService } from '../../projects/project.service';
 
 interface YearSizeDict { [key: number]: number; }
 

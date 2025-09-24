@@ -1,41 +1,61 @@
-.landing-page {
-    padding: var(--standard-padding);
-    width: calc(100vw - var(--standard-padding) * 2);
-    height: calc(100vh - var(--standard-padding) * 2);
-    display: flex;
-    flex-direction: row;
+.main {
+    width: calc(100% - 2 * var(--standard-padding));
+    height: calc(100% - 2 * var(--standard-padding));
+    display: grid;
+    grid-template-columns: var(--sidebar-width) auto;
+    grid-template-rows: var(--topbar-height) var(--sidebar-width) auto;
+    grid-template-areas:
+            "title filters"
+            "thumbnail slideshow"
+            "links slideshow";
     gap: var(--standard-padding);
-    overflow: hide;
+    margin: var(--standard-padding);
 }
 
-.main-personal {
-    width: var(--main-personal-width);
-    display: block;
+.box {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--outer-radius);
 }
 
-.main-slideshow {   
-    width: var(--main-slideshow-width);
+/* ---- 'outset' boxes ---- */
+.title, .filters, .thumbnail, .links {
+    box-shadow: inset var(--under), inset var(--shine), var(--near-shadow);
 }
 
-.main-slideshow, .main-personal {
-    height: calc(100vh - var(--standard-padding) * 2);
+/* ---- 'inset' boxes ---- */
+.slideshow {
+    overflow: hidden;
+    box-shadow: var(--shine);
 }
 
-/* Phone */
-@media (max-width: 767px) {
-    .landing-page {
-        flex-direction: column;
-    }
+/* ---- layer 3 boxes ---- */
+.title, .links {
+    background-color: rgb(var(--color-layer-3));
+}
 
-    .main-personal {
-        height: var(--main-personal-height);
-        width: 100%;
-    }
+/* ----  layer 2 boxes ---- */
+.filters {
+    background-color: rgb(var(--color-layer-2));
+}
 
-    .main-slideshow {   
-        height: var(--main-slideshow-height);
-        position: fixed;
-        top: calc(var(--main-personal-height) + 2 * var(--standard-padding));
-        width: 100%;
-    }
+.title {
+    grid-area: title;
+}
+
+.filters {
+    grid-area: filters;
+}
+
+.slideshow {
+    grid-area: slideshow;
+}
+
+.thumbnail {
+    object-fit: scale-down;
+    grid-area: thumbnail;
+}
+
+.links {
+    grid-area: links;
 }

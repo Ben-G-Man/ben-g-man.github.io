@@ -1,17 +1,9 @@
 <main class="main">
-  <div class="content">
-
-    <div class="landing-page">
-        <!-- Left 'about' bar -->
-        <app-personal-section class="main-personal">
-        </app-personal-section>
-
-        <!-- Right 'projects' bar -->
-        <app-slideshow-section class="main-slideshow">
-        </app-slideshow-section>
-    </div>
-
-  </div>
+  <app-greetings-box class="box title"></app-greetings-box>
+  <img class="box thumbnail" src="assets/images/landing/landing.jpg"/>
+  <app-links-box class="box links"></app-links-box>
+  <app-filters-box class="box filters"></app-filters-box>
+  <app-slideshow-box class="box slideshow"></app-slideshow-box>
 </main>
 
 <router-outlet />

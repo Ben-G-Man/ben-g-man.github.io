@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { MatIcon } from "@angular/material/icon";
-import { SlideshowService } from '../slideshow.service';
-import { UiService } from '../../ui.service';
-import { DropDownContainerComponent } from "../../generic/drop-down-container/drop-down-container.component";
+import { SlideshowService } from '../../slideshow-box/slideshow.service';
+import { UiService } from '../../../ui.service';
+import { DropDownContainerComponent } from "../../../generic/drop-down-container/drop-down-container.component";
 
 @Component({
   selector: 'app-slideshow-filter',

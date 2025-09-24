@@ -1,13 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { Project } from '../../projects/project.model';
+import { Project } from '../../../projects/project.model';
 import { TagIconComponent } from "./tag-icon/tag-icon.component";
+import { ForcedSizeImageComponent } from "../../../generic/forced-size-image/forced-size-image.component";
 
 @Component({
   selector: 'app-slide',
   standalone: true,
   templateUrl: './slide.component.html',
   styleUrl: './slide.component.scss',
-  imports: [TagIconComponent]
+  imports: [TagIconComponent, ForcedSizeImageComponent]
 })
 export class SlideComponent {
     @Input() project!: Project;
