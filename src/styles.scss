@@ -29,6 +29,13 @@ body {
     --small-font-size: 1.8vmin;
     --text-padding: 20px;
 
+    @media (max-width: 1099px) {
+        --larger-font-size: 20px;
+        --large-font-size: 16px;
+        --medium-font-size: 14px;
+        --small-font-size: 10px;
+    }
+
     /* ---- Colours ----
     NOTE: Stored as raw values so that alpha can be added */
     --color-layer-3: 23, 36, 30;

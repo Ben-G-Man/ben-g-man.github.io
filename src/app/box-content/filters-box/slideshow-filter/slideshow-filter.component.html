@@ -2,7 +2,7 @@
     {{label}}
     <mat-icon>arrow_drop_down</mat-icon>
     <div class="toggle-button" (click)="uiService.toggleFocus(filter)"></div>
-    <app-drop-down-container>
+    <app-drop-down-container [wide]="wide">
         <ng-content></ng-content>
     </app-drop-down-container>
 </div>

@@ -163,6 +163,11 @@ export class SlideshowService {
         this.slideIndex = newIndex;
     }
 
+    setFilterTags(tags: ProjectTag[]) {
+        this._tagFilters = tags;
+        this._refreshFilteredProjects(this._projectService.getProjects());
+    }
+
     setFilterStartDate(date: Date) {
         this._filterStartDate = date;
         if (this._filterStartDate > this._filterEndDate) {

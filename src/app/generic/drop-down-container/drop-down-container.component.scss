@@ -19,5 +19,11 @@
         color: rgb(var(--color-light));
         border-radius: var(--outer-radius);
         box-shadow: var(--far-shadow);
+
+        &.wide {
+            width: 20vw;
+            max-height: 70vh;
+            overflow: scroll;
+        }
     }
 }

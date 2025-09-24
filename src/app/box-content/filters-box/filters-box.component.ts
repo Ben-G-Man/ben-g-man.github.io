@@ -4,6 +4,8 @@ import { SlideshowService } from '../slideshow-box/slideshow.service';
 import { SlideshowFilterComponent } from "./slideshow-filter/slideshow-filter.component";
 import { DropDownListComponent } from "../../generic/drop-down-list/drop-down-list.component";
 import { WindowSizeService } from '../../generic/window-size-service';
+import { ProjectTag } from '../../projects/project.model';
+import { filter } from 'rxjs';
 
 @Component({
     selector: 'app-filters-box',
@@ -14,7 +16,25 @@ import { WindowSizeService } from '../../generic/window-size-service';
 })
 export class FiltersBoxComponent {
     constructor(public slideshowService: SlideshowService, private _uiService: UiService, private _windowSizeService: WindowSizeService) { }
-    
+
+    /* ---- Tags ---- */
+
+    allTags: ProjectTag[] = Object.values(ProjectTag);
+    selectedTags: ProjectTag[] = this.allTags;
+
+    toggle(value: ProjectTag, event: Event) {
+        const checked = (event.target as HTMLInputElement).checked;
+        if (checked) {
+            this.selectedTags.push(value);
+        } else {
+            this.selectedTags = this.selectedTags.filter(v => v !== value);
+        }
+
+        this.slideshowService.setFilterTags(this.selectedTags);
+    }
+
+    /* ---- Dates ---- */
+
     handleStartDateSelection(selection: string): void {
         this.slideshowService.setFilterStartDate(new Date(selection));
         this._onHandleSelection();
@@ -40,7 +60,7 @@ export class FiltersBoxComponent {
     getTagsText(): string {
         return 'custom';
     }
-    
+
     getStartDateText(): string {
         let text: string = this.slideshowService.filterStartYear.toString();
 
@@ -50,10 +70,10 @@ export class FiltersBoxComponent {
 
         return text;
     }
-    
+
     getEndDateText(): string {
         let text: string = this.slideshowService.filterEndYear.toString()
-        
+
         if (!this._windowSizeService.isLaptop) {
             text = "To " + text;
         }

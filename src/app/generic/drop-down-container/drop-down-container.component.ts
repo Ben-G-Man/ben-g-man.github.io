@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-drop-down-container',
@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './drop-down-container.component.html',
   styleUrl: './drop-down-container.component.scss'
 })
-export class DropDownContainerComponent { }
+export class DropDownContainerComponent {
+    @Input()
+    wide: boolean = false;
+}

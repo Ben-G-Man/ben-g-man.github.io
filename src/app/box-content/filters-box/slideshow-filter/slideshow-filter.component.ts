@@ -12,7 +12,9 @@ import { DropDownContainerComponent } from "../../../generic/drop-down-container
   styleUrl: './slideshow-filter.component.scss'
 })
 export class SlideshowFilterComponent {
-    constructor(public slideshowService: SlideshowService, public uiService: UiService) { }
+    constructor(public slideshowService: SlideshowService, public uiService: UiService) {}
 
     @Input() label!: string;
+    @Input()
+    wide: boolean = false;
 }

@@ -35,23 +35,8 @@
 
     /* Phone */
     @media (max-width: 799px) {
-        height: auto;
-        width: calc(100vw - 6 * var(--standard-padding));
-        padding: var(--standard-padding);
-        margin: var(--standard-padding);
-        gap: 6px;
-        background-color: rgb(var(--color-layer-1));
-        border-radius: var(--inner-once-radius);
-        justify-content: center;
-
-        .text-segment {
-            height: auto;
-            margin: 0;
-        }
-
-        app-slideshow-filter {
-            height: auto;
-            margin: 0;
+        .alt-text-segment {
+            width: 100%;
         }
     }
 }

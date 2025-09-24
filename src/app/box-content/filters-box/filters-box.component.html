@@ -2,8 +2,17 @@
     <div class="alt-text-segment"><b>{{slideshowService.filteredProjects.length}}</b> results for:</div>
     <div class="text-segment">Showing <b>{{slideshowService.filteredProjects.length}}</b> projects with</div>
 
-    <app-slideshow-filter [label]="getTagsText()">
-        Tags Filter Content
+    <app-slideshow-filter [label]="getTagsText()" [wide]="true">
+        @for (tag of allTags; track allTags) {
+            <label class="tagCheck">
+                <input
+                type="checkbox"
+                [checked]="selectedTags.includes(tag)"
+                (change)="toggle(tag, $event)"
+                />
+                {{ tag }}
+            </label>
+        }
     </app-slideshow-filter>
 
     <div class="text-segment">tags between</div>
