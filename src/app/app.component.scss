@@ -138,7 +138,7 @@
 @media (max-width: 799px) {
     .main {
         grid-template-columns: auto var(--topbar-height);
-        grid-template-rows: var(--topbar-height) var(--topbar-height) auto;
+        grid-template-rows: var(--topbar-height) var(--sidebar-width) auto;
         grid-template-areas:
                 "title menu"
                 "filters filters"

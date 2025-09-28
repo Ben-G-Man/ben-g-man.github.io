@@ -15,7 +15,8 @@ body {
     }
     --topbar-height: 10vh;
     @media (max-width: 799px) {
-        --topbar-height: 8vh;
+        --topbar-height: 5vh;
+        --sidebar-width: 8vh;
     }
     --standard-padding: 12px;
     --slide-padding: 60px;
