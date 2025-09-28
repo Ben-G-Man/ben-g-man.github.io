@@ -105,24 +105,36 @@ root {
         position: absolute;
         z-index: 3;
         bottom: 0;
+        position: relative;
         
         @media (max-width: 799px) {
             display: none;
         }
 
-        .progress-bar {
+        .progress-bar-background {
+            --bar-width: 6px;
+            --padding: calc(var(--outer-radius) - var(--bar-width) / 2);
             position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 20%;
-            background-color: rgb(var(--color-text));
+            width: calc(100% - 2 * var(--padding));
+            bottom: var(--padding);
+            left: var(--padding);
+            border-radius: 99999px;
+            height: var(--bar-width);
+            background-color: rgba(var(--color-text), 0.2);
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, rgb(5, 87, 68), rgb(43, 177, 99));
+            box-shadow: inset -3px 3px 4px 2px rgba(200, 255, 184, 0.4);
             transition: var(--reel-change-time);
+            height: 100%;
+            border-radius: 99999px;
         }
 
         .years {
             position: absolute;
-            top: 30%;
-            height: 40%;
+            bottom: calc(2 * var(--outer-radius));
+            height: calc(100% - 2 * var(--outer-radius));
             width: 100%;
             display: flex;
             align-content: center;
@@ -131,7 +143,7 @@ root {
         .year {
             box-sizing: border-box;
             border-left-style: solid;
-            border-left-color: rgba(var(--color-text), 0.5);
+            border-left-color: rgba(var(--color-text), 0.2);
             border-left-width: 2px;
             cursor: pointer;
             position: relative;

@@ -1,4 +1,10 @@
-<div class="greetings-text">
-    <a>👋 hi! I’m</a>
-    <a>benji!</a>
-</div>
+@if (uiService.isMobile) {
+    <div class="greetings-text">
+        <a>👋 hi! I’m benji!</a>
+    </div>
+} @else {
+    <div class="greetings-text">
+        <a>👋 hi! I’m</a>
+        <a>benji!</a>
+    </div>
+}

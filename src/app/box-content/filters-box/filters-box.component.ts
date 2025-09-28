@@ -3,9 +3,7 @@ import { UiService } from '../../ui.service';
 import { SlideshowService } from '../slideshow-box/slideshow.service';
 import { SlideshowFilterComponent } from "./slideshow-filter/slideshow-filter.component";
 import { DropDownListComponent } from "../../generic/drop-down-list/drop-down-list.component";
-import { WindowSizeService } from '../../generic/window-size-service';
 import { ProjectTag } from '../../projects/project.model';
-import { filter } from 'rxjs';
 
 @Component({
     selector: 'app-filters-box',
@@ -15,7 +13,7 @@ import { filter } from 'rxjs';
     styleUrl: './filters-box.component.scss'
 })
 export class FiltersBoxComponent {
-    constructor(public slideshowService: SlideshowService, private _uiService: UiService, private _windowSizeService: WindowSizeService) { }
+    constructor(public slideshowService: SlideshowService, private _uiService: UiService) { }
 
     /* ---- Tags ---- */
 
@@ -64,7 +62,7 @@ export class FiltersBoxComponent {
     getStartDateText(): string {
         let text: string = this.slideshowService.filterStartYear.toString();
 
-        if (!this._windowSizeService.isLaptop) {
+        if (!this._uiService.isLaptop) {
             text = "From " + text;
         }
 
@@ -74,7 +72,7 @@ export class FiltersBoxComponent {
     getEndDateText(): string {
         let text: string = this.slideshowService.filterEndYear.toString()
 
-        if (!this._windowSizeService.isLaptop) {
+        if (!this._uiService.isLaptop) {
             text = "To " + text;
         }
 

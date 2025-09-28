@@ -9,6 +9,19 @@
     align-items: center;
     user-select: none;
 
+    .text {
+        transition: var(--button-transition);
+    }
+
+    &:hover {
+        .text {
+            font-weight: 500;
+            transition: var(--button-transition);
+            margin-top: -4px;
+            margin-bottom: 4px;
+        }
+    }
+
     mat-icon {
         transition: 0.1s;
         line-height: 100%;

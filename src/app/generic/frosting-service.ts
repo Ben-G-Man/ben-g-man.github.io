@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { WindowSizeService } from './window-size-service';
+import { UiService } from '../ui.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class FrostingService {
-    constructor(public windowSizeService: WindowSizeService) {}
+    constructor(public uiService: UiService) {}
 
     public openMenu: boolean = false;
 
     toggle(): void {
-        if (this.windowSizeService.isLaptop) return;
+        if (this.uiService.isLaptop) return;
         
         if (this.openMenu) this.openMenu = false;
         else this.openMenu = true;

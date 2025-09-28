@@ -21,13 +21,13 @@ export class AppComponent {
 
     constructor(
         private matIconReg: MatIconRegistry,
-        private uiService: UiService,
+        private _uiService: UiService,
         public frostingService: FrostingService
     ) { }
 
     @HostListener('document:click', ['$event.target'])
     onDocumentClick(target: HTMLElement): void {
-        this.uiService.clearFocusIfOutside(target);
+        this._uiService.clearFocusIfOutside(target);
     }
 
     ngOnInit(): void {

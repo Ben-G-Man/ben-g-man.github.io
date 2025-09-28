@@ -9,6 +9,35 @@
     border-radius: var(--outer-radius);
     box-shadow: inset var(--shine);
     box-sizing: border-box;
+    cursor: pointer;
+}
+
+.read-more {
+    width: 100%;
+    position: absolute;
+    padding: var(--standard-padding);
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(var(--color-layer-2), 0.3);
+    backdrop-filter: blur(6px);
+    font-size: var(--small-font-size);
+    font-style: italic;
+    color: rgba(var(--color-text), 0.5);
+    transition: var(--button-transition);
+}
+
+.container:hover {
+    .read-more {
+        padding-bottom: calc(1.5 * var(--standard-padding));
+        padding-top: calc(0.5 * var(--standard-padding));
+        color: rgba(var(--color-text), 1);
+        transition: var(--button-transition);
+    }
+}
+
+app-forced-size-image {
+    background: color-mix(in srgb, rgb(var(--color-layer-1)) 40%, rgb(var(--color-layer-2)) 60%);
 }
 
 .section-label {
@@ -46,10 +75,10 @@
 
 .description {
     background-color: rgb(var(--color-layer-2));
-    box-shadow: inset var(--near-shadow);
     padding: var(--standard-padding);
     text-align: justify;
     overflow: hidden;
+    position: relative;
 }
 
 /* Portrait monitor or laptop */
