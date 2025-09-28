@@ -8,15 +8,15 @@
         width: calc(var(--standard-padding) * 2);
         height: calc(var(--standard-padding));
         clip-path: polygon(50% 4px, 0% 100%, 100% 100%);
-        background-color: rgb(var(--color-light));
+        background-color: rgb(var(--color-text));
         margin-left: calc(50% - var(--standard-padding));
     }
 
     .content {
         padding: var(--standard-padding);
-        border: 3px solid rgb(var(--color-light));
+        border: var(--border-thickness) solid rgb(var(--color-text));
         background-color: rgb(var(--color-layer-1));
-        color: rgb(var(--color-light));
+        color: rgb(var(--color-text));
         border-radius: var(--outer-radius);
         box-shadow: var(--far-shadow);
 

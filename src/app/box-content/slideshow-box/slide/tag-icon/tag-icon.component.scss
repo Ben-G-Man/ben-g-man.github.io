@@ -3,9 +3,9 @@
     width: auto;
     height: auto;
     min-width: 12.8px;
-    border-width: 2px;
-    border-color: rgb(205, 219, 199);
-    color: rgb(205, 219, 199);
+    border-width: var(--border-thickness);
+    border-color: rgb(var(--color-text));
+    color: rgb(var(--color-text));
     border-style: solid;
     text-align: center;
     padding-top: 1px;

@@ -14,10 +14,14 @@ body {
         --sidebar-width: 25vw;
     }
     --topbar-height: 10vh;
+    @media (max-width: 799px) {
+        --topbar-height: 8vh;
+    }
     --standard-padding: 12px;
     --slide-padding: 60px;
     --timeline-height: 5vh;
     --about-button-move-distance: 12px;
+    --border-thickness: 2px;
 
     /* ---- Rounding ---- */
     --outer-radius: 8px;
@@ -30,24 +34,24 @@ body {
     --text-padding: 20px;
 
     @media (max-width: 1099px) {
-        --larger-font-size: 20px;
-        --large-font-size: 16px;
-        --medium-font-size: 14px;
-        --small-font-size: 10px;
+        --larger-font-size: 24px;
+        --large-font-size: 20px;
+        --medium-font-size: 16px;
+        --small-font-size: 12px;
     }
 
     /* ---- Colours ----
     NOTE: Stored as raw values so that alpha can be added */
-    --color-layer-3: 23, 36, 30;
-    --color-layer-2: 18, 28, 23;
-    --color-layer-1: 8, 14, 11;
-    --color-light: 230, 240, 230;
+    --color-layer-3: 14, 30, 19;
+    --color-layer-2: 8, 22, 15;
+    --color-layer-1: 2, 14, 11;
+    --color-text: 240, 250, 255;
 
     /* ---- Shadows ---- */
-    --far-shadow: 0 8px 20px 8px rgba(0, 0, 0, 1);
-    --near-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.5);
-    --shine: 0 4px 4px 0px rgba(225, 252, 239, 0.03);
-    --under: 0 -4px 4px 0px rgba(0, 0, 0, 0.2);
+    --far-shadow: 0 8px 20px 8px rgba(0, 0, 0, 0.5);
+    --near-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.3);
+    --shine: -3px 3px 3px 0px rgba(225, 252, 239, 0.0);
+    --under: 3px -3px 3px 0px rgba(0, 0, 0, 0.0);
 
     /* ---- Animation ---- */
     --button-transition: 0.2s ease-in-out;
@@ -57,7 +61,7 @@ body {
     
     font-family: "Roboto Mono", sans-serif;
 
-    color: rgb(var(--color-light));
+    color: rgb(var(--color-text));
     font-size: var(--medium-font-size);
     
     h1 {
@@ -84,7 +88,7 @@ body {
     box-shadow: var(--far-shadow), inset var(--shine), inset var(--under);
     border: 0;
     background-color: rgb(var(--color-layer-3));
-    color: rgb(var(--color-light));
+    color: rgb(var(--color-text));
     cursor: pointer;
 
     mat-icon {

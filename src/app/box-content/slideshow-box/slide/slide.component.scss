@@ -8,6 +8,7 @@
     overflow: scroll;
     border-radius: var(--outer-radius);
     box-shadow: inset var(--shine);
+    box-sizing: border-box;
 }
 
 .section-label {

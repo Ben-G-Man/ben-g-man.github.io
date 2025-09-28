@@ -52,6 +52,7 @@ root {
             border-style: solid;
             border-color: rgb(var(--color-layer-2));
             pointer-events: all;
+            box-sizing: border-box;
         }
     }
 
@@ -93,7 +94,7 @@ root {
             top: 50%;
             transform: translateX(-50%) translateY(-50%);
             font-size: var(--large-font-size);
-            color: rgba(var(--color-light), 0.4);
+            color: rgba(var(--color-text), 0.4);
         }
     }
 
@@ -114,7 +115,7 @@ root {
             bottom: 0;
             width: 100%;
             height: 20%;
-            background-color: rgb(var(--color-light));
+            background-color: rgb(var(--color-text));
             transition: var(--reel-change-time);
         }
 
@@ -130,7 +131,7 @@ root {
         .year {
             box-sizing: border-box;
             border-left-style: solid;
-            border-left-color: rgba(var(--color-light), 0.5);
+            border-left-color: rgba(var(--color-text), 0.5);
             border-left-width: 2px;
             cursor: pointer;
             position: relative;
@@ -141,7 +142,7 @@ root {
                 line-height: 100%;
                 font-style: italic;
                 font-size: var(--small-font-size);
-                color: rgb(var(--color-light));
+                color: rgb(var(--color-text));
                 opacity: 0.5;
                 left: 50%;
                 transform: translateX(-50%);

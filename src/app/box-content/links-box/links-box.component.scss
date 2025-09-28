@@ -5,12 +5,12 @@
     margin-left: var(--text-padding);
     padding-top: calc(var(--text-padding) / 2);
     padding-bottom: calc(var(--text-padding) / 2);
-    border-bottom-width: 2px;
-    border-bottom-color: rgba(var(--color-layer-1), 0.5);
+    border-bottom-width: var(--border-thickness);
+    border-bottom-color: rgb(var(--color-layer-1));
     border-bottom-style: solid;
     cursor: pointer;
     transition: var(--button-transition);
-    color: rgb(var(--color-light));
+    color: rgb(var(--color-text));
     text-decoration: none;
 
     &:last-child {
