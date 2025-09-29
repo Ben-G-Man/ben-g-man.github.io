@@ -124,8 +124,8 @@ root {
         }
 
         .progress-bar {
-            background: linear-gradient(90deg, rgb(5, 87, 68), rgb(43, 177, 99));
-            box-shadow: inset -3px 3px 4px 2px rgba(200, 255, 184, 0.4);
+            background: linear-gradient(90deg, rgb(var(--color-layer-1)), rgb(43, 177, 99));
+            box-shadow: inset -2px 2px 3px 1px rgba(233, 255, 227, 0.3);
             transition: var(--reel-change-time);
             height: 100%;
             border-radius: 99999px;

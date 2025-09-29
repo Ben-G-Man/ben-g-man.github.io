@@ -143,6 +143,16 @@
                 "title menu"
                 "filters filters"
                 "slideshow slideshow";
+        gap: 0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .menu-button, .title {
+        border-radius: 0;
+        box-shadow: none;
+        z-index: 11;
     }
 
     .menu-button {
@@ -162,9 +172,9 @@
         position: fixed;
         left: calc(10% - var(--standard-padding));
         top: calc(20% - var(--standard-padding));
-        z-index: 11;
         border-radius: var(--outer-radius);
         padding: var(--standard-padding);
+        z-index: 11;
 
         h1 {
             margin-left: var(--standard-padding);
@@ -174,5 +184,23 @@
             opacity: 0;
             pointer-events: none;            
         }
+    }
+
+    .slideshow, .filters {
+        width: calc(100% - var(--standard-padding) * 2);
+        height: calc(100% - var(--standard-padding));
+        margin: var(--standard-padding);
+    }
+        
+    .slideshow {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        margin-top: 0;
+    }   
+
+    .filters {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-bottom: 0;
     }
 }

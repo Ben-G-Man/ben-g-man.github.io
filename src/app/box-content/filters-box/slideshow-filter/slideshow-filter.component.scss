@@ -2,12 +2,12 @@
     border-radius: var(--outer-radius);
     padding-left: 8px;
     background-color: rgb(var(--color-layer-1));
-    box-shadow: inset var(--near-shadow);
     color: rgb(var(--color-text));
     position: relative;
     display: flex;
     align-items: center;
     user-select: none;
+    box-shadow: inset var(--under), var(--shine), inset var(--near-shadow);
 
     .text {
         transition: var(--button-transition);

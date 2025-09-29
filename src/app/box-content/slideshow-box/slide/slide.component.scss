@@ -3,13 +3,13 @@
     height: 100%;
     width: 100%;
     background-color: rgb(var(--color-layer-3));
-    box-shadow: var(--near-shadow);
     display: grid;
-    overflow: scroll;
     border-radius: var(--outer-radius);
     box-shadow: inset var(--shine);
     box-sizing: border-box;
     cursor: pointer;
+    overflow: hidden;
+    box-shadow: var(--near-shadow);
 }
 
 .read-more {
@@ -20,6 +20,8 @@
     left: 0;
     bottom: 0;
     background-color: rgba(var(--color-layer-2), 0.3);
+    border-top: 2px solid rgba(var(--color-text), 0.1);
+    box-sizing: border-box;
     backdrop-filter: blur(6px);
     font-size: var(--small-font-size);
     font-style: italic;
@@ -156,6 +158,7 @@ app-forced-size-image {
 
     .description {
         grid-area: second;
+        max-height: calc(100vw - 4 * var(--standard-padding));
     }
 
     h1 {

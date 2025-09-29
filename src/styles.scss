@@ -4,20 +4,39 @@ body {
     overflow: hidden;
     margin: 0;
     padding: 0;
-    background-color: rgb(var(--color-layer-1));
+    background-image: url('/assets/images/landing/background.svg'), url('/assets/images/landing/background.svg');
+    background-repeat: repeat-x;
+    background-size: 200vh 100vh;
+    background-position: 0 0;
+
+    animation: scroll-bg 90s linear infinite;
+}
+
+@keyframes scroll-bg {
+    from {
+        background-position: 200vh 0;
+    }
+
+    to {
+        background-position: 0 0;
+    }
 }
 
 :root {
     /* ---- Sizes ---- */
     --sidebar-width: 18vw;
+
     @media (max-width: 1099px) {
         --sidebar-width: 25vw;
     }
+
     --topbar-height: 10vh;
+
     @media (max-width: 799px) {
         --topbar-height: 5vh;
         --sidebar-width: 8vh;
     }
+
     --standard-padding: 12px;
     --slide-padding: 60px;
     --timeline-height: 5vh;
@@ -43,28 +62,39 @@ body {
 
     /* ---- Colours ----
     NOTE: Stored as raw values so that alpha can be added */
-    --color-layer-3: 14, 30, 19;
-    --color-layer-2: 8, 22, 15;
-    --color-layer-1: 2, 14, 11;
-    --color-text: 240, 250, 255;
+    --color-layer-3: 24,
+    72,
+    51;
+    --color-layer-2: 20,
+    54,
+    39;
+    --color-layer-1: 9,
+    31,
+    20;
+    --color-text: 240,
+    250,
+    255;
+
+    --airhejsdksfadsjlhansldjlajsfniskjdm: rgb(9, 31, 20);
 
     /* ---- Shadows ---- */
-    --far-shadow: 0 8px 20px 8px rgba(0, 0, 0, 0.5);
-    --near-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.3);
-    --shine: -3px 3px 3px 0px rgba(225, 252, 239, 0.0);
-    --under: 3px -3px 3px 0px rgba(0, 0, 0, 0.0);
+    --far-shadow: 0 8px 20px 8px rgba(0, 0, 0, 0.7);
+    --near-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.4);
+    --shine: -1px 1px 2px 0px rgba(225, 252, 239, 0.1);
+    --under: 1px -1px 2px 0px rgba(0, 0, 0, 0.2);
 
     /* ---- Animation ---- */
     --button-transition: 0.2s ease-in-out;
     --button-click-transition: 0.1s ease-out;
     --reel-change-time: 0.4s;
     --dropdown-transition: 0.25s ease-in;
-    
-    font-family: "Roboto Mono", sans-serif;
+
+    font-family: "Roboto Mono",
+    sans-serif;
 
     color: rgb(var(--color-text));
     font-size: var(--medium-font-size);
-    
+
     h1 {
         font-weight: 300;
         font-size: var(--larger-font-size);
@@ -106,7 +136,7 @@ body {
         box-shadow: var(--near-shadow), inset var(--shine), inset var(--under);
         transform: translateY(4px);
         background-color: rgb(var(--color-layer-2));
-        
+
         mat-icon {
             opacity: 0.3;
         }
