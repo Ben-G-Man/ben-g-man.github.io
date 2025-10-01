@@ -4,11 +4,13 @@ import { Project } from './project.model';
 
 @Injectable({ providedIn: 'root' })
 export class ProjectService {
-  getProjects(): Project[] {
-    return PROJECTS;
-  }
+    public projectCount: number = PROJECTS.length;
 
-  getProjectById(id: string): Project | undefined {
-    return PROJECTS.find(p => p.id === id);
-  }
+    getProjects(): Project[] {
+        return PROJECTS;
+    }
+
+    getProjectById(id: string): Project | undefined {
+        return PROJECTS.find(p => p.id === id);
+    }
 }

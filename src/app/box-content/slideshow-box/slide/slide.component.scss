@@ -158,6 +158,7 @@ app-forced-size-image {
 
     .description {
         grid-area: second;
+        min-height: calc(50vw - 4 * var(--standard-padding));
         max-height: calc(100vw - 4 * var(--standard-padding));
     }
 

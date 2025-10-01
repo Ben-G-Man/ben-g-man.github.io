@@ -4,22 +4,6 @@ body {
     overflow: hidden;
     margin: 0;
     padding: 0;
-    background-image: url('/assets/images/landing/background.svg'), url('/assets/images/landing/background.svg');
-    background-repeat: repeat-x;
-    background-size: 200vh 100vh;
-    background-position: 0 0;
-
-    animation: scroll-bg 90s linear infinite;
-}
-
-@keyframes scroll-bg {
-    from {
-        background-position: 200vh 0;
-    }
-
-    to {
-        background-position: 0 0;
-    }
 }
 
 :root {

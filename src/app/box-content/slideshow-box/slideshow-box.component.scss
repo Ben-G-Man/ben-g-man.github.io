@@ -1,7 +1,3 @@
-root {
-    --reel-index: 0; // This is modified at runtime to transform the reel position
-}
-
 .window {
     // Defining a set window width and height here for use later on
     --window-width: calc(100vw - 3 * var(--standard-padding) - var(--sidebar-width));

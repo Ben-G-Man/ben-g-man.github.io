@@ -1,4 +1,4 @@
-<div (wheel)="onScroll($event)" class="window">
+<div class="window">
 
     <!-- Border Details -->
     <div class="shadow"></div>
@@ -12,7 +12,7 @@
     </div>
     
     <!-- Slideshow Contents -->
-    <div class="reel">
+    <div class="reel" (wheel)="onMouseWheel($event)" (scroll)="setScrollDistance($event)">
         @for (project of slideshowService.filteredProjects; track project.id) {
         <app-slide [project]=project></app-slide>
         } @empty {

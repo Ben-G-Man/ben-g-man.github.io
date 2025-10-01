@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { SlideshowService } from './slideshow.service';
 import { UiService } from '../../ui.service';
 import { MatIcon } from "@angular/material/icon";
@@ -17,17 +17,15 @@ export class SlideshowBoxComponent {
     private _scrollThrottleTime: number = 200; // in ms
     private _minScroll: number = 50;
     private _lastScrollTime: number = 0;
-    
     private _slideIndex: number = 0;
 
     ngDoCheck(): void {
         if (this._slideIndex != this.slideshowService.slideIndex) {
             this._slideIndex = this.slideshowService.slideIndex;
-            this._el.nativeElement.style.setProperty('--reel-index', this._slideIndex);
         }
     }
 
-    onScroll(event: WheelEvent): void {
+    onMouseWheel(event: WheelEvent): void {
         const now = Date.now();
         if (now - this._lastScrollTime < this._scrollThrottleTime) return;  // Animation has not finished
         if (Math.abs(event.deltaY) < this._minScroll) return;               // Scroll is too small
@@ -39,6 +37,13 @@ export class SlideshowBoxComponent {
         else if (delta < 0) this.slideshowService.previousSlide();
 
         this._lastScrollTime = now;
+    }
+
+    setScrollDistance(event: Event): void {
+        const target = event.target as HTMLElement;
+        const top = target.scrollTop;
+        const height = target.scrollHeight;
+        this._uiService.setScrollPosition(top, height)
     }
     
     prevInactive(): boolean {
