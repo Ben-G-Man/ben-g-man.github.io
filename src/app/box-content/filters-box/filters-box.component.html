@@ -3,16 +3,27 @@
     <div class="text-segment">Showing <b>{{slideshowService.filteredProjects.length}}</b> projects with</div>
 
     <app-slideshow-filter [label]="getTagsText()" [wide]="true">
-        @for (tag of allTags; track allTags) {
-            <label class="tagCheck">
-                <input
-                type="checkbox"
-                [checked]="selectedTags.includes(tag)"
-                (change)="toggle(tag, $event)"
-                />
-                {{ tag }}
-            </label>
+
+        @for (category of (TagCategory | keyvalue); track TagCategory) {
+
+            <div class="tag-group {{category.value}}">
+                <h1 class="{{category.value}}">{{category.value}}
+                    <mat-icon (click)="removeAll(category.value)">indeterminate_check_box</mat-icon>
+                    <mat-icon (click)="addAll(category.value)">add_box</mat-icon>
+                </h1>
+
+                <div class="tag-list">
+                    @for (tag of tagsByCategory[category.value]; track TagCategory) {
+                        <label class="tagCheck">
+                            <app-tag-icon (click)="toggle(tag, $event)" [class.selected]="selectedTags.includes(tag)" [tag]="tag">
+                                <div class="input"></div>
+                            </app-tag-icon>
+                        </label>
+                    }
+                </div>
+            </div>
         }
+
     </app-slideshow-filter>
 
     <div class="text-segment">tags between</div>

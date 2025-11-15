@@ -53,7 +53,7 @@ export enum ProjectTag {
     Halide = 'Halide'
 }
 
-export enum Category {
+export enum TagCategory {
     GameDev = "game-dev",
     MakerSpace = "maker-space",
     DevOps = "dev-ops",
@@ -62,61 +62,62 @@ export enum Category {
     Default = "default"
 }
 
-export const categoryMap: Record<ProjectTag, Category> = {
-    [ProjectTag.Unity]: Category.GameDev,
-    [ProjectTag.VPS]: Category.GameDev,
-    [ProjectTag.HLSL]: Category.GameDev,
-    [ProjectTag.ARVR]: Category.GameDev,
+export const categoryMap: Record<ProjectTag, TagCategory> = {
+    [ProjectTag.Unity]: TagCategory.GameDev,
+    [ProjectTag.VPS]: TagCategory.GameDev,
+    [ProjectTag.HLSL]: TagCategory.GameDev,
+    [ProjectTag.ARVR]: TagCategory.GameDev,
 
-    [ProjectTag.FDM]: Category.MakerSpace,
-    [ProjectTag.Laser]: Category.MakerSpace,
-    [ProjectTag.Cricut]: Category.MakerSpace,
-    [ProjectTag.CAD]: Category.MakerSpace,
-    [ProjectTag.Fusion]: Category.MakerSpace,
-    [ProjectTag.Illustrator]: Category.MakerSpace,
-    [ProjectTag.Electrical]: Category.MakerSpace,
+    [ProjectTag.FDM]: TagCategory.MakerSpace,
+    [ProjectTag.Laser]: TagCategory.MakerSpace,
+    [ProjectTag.Cricut]: TagCategory.MakerSpace,
+    [ProjectTag.CAD]: TagCategory.MakerSpace,
+    [ProjectTag.Fusion]: TagCategory.MakerSpace,
+    [ProjectTag.Illustrator]: TagCategory.MakerSpace,
+    [ProjectTag.Electrical]: TagCategory.MakerSpace,
 
-    [ProjectTag.Docker]: Category.DevOps,
+    [ProjectTag.Docker]: TagCategory.DevOps,
 
-    [ProjectTag.React]: Category.Web,
-    [ProjectTag.Angular]: Category.Web,
-    [ProjectTag.HTML]: Category.Web,
-    [ProjectTag.CSS]: Category.Web,
-    [ProjectTag.TS]: Category.Web,
-    [ProjectTag.JS]: Category.Web,
+    [ProjectTag.React]: TagCategory.Web,
+    [ProjectTag.Angular]: TagCategory.Web,
+    [ProjectTag.HTML]: TagCategory.Web,
+    [ProjectTag.CSS]: TagCategory.Web,
+    [ProjectTag.TS]: TagCategory.Web,
+    [ProjectTag.JS]: TagCategory.Web,
 
-    [ProjectTag.MySQL]: Category.Data,
-    [ProjectTag.SQL]: Category.Data,
-    [ProjectTag.Matlab]: Category.Data,
-    [ProjectTag.R]: Category.Data,
-    [ProjectTag.Halide]: Category.Data,
+    [ProjectTag.MySQL]: TagCategory.Data,
+    [ProjectTag.SQL]: TagCategory.Data,
+    [ProjectTag.Matlab]: TagCategory.Data,
+    [ProjectTag.R]: TagCategory.Data,
+    [ProjectTag.Halide]: TagCategory.Data,
 
-    [ProjectTag.OpenGL]: Category.Default,
-    [ProjectTag.GPT]: Category.Default,
-    [ProjectTag.PromptEngineering]: Category.Default,
-    [ProjectTag.Java]: Category.Default,
-    [ProjectTag.JavaFX]: Category.Default,
-    [ProjectTag.Cpp]: Category.Default,
-    [ProjectTag.C]: Category.Default,
-    [ProjectTag.Python]: Category.Default,
-    [ProjectTag.Commission]: Category.Default,
-    [ProjectTag.University]: Category.Default,
-    [ProjectTag.MeshLab]: Category.Default,
-    [ProjectTag.DataProcessing]: Category.Default,
-    [ProjectTag.PixelArt]: Category.Default,
-    [ProjectTag.Modeling]: Category.Default,
-    [ProjectTag.Csharp]: Category.Default,
-    [ProjectTag.Kivy]: Category.Default,
-    [ProjectTag.PHP]: Category.Default
+    [ProjectTag.OpenGL]: TagCategory.Default,
+    [ProjectTag.GPT]: TagCategory.Default,
+    [ProjectTag.PromptEngineering]: TagCategory.Default,
+    [ProjectTag.Java]: TagCategory.Default,
+    [ProjectTag.JavaFX]: TagCategory.Default,
+    [ProjectTag.Cpp]: TagCategory.Default,
+    [ProjectTag.C]: TagCategory.Default,
+    [ProjectTag.Python]: TagCategory.Default,
+    [ProjectTag.Commission]: TagCategory.Default,
+    [ProjectTag.University]: TagCategory.Default,
+    [ProjectTag.MeshLab]: TagCategory.Default,
+    [ProjectTag.DataProcessing]: TagCategory.Default,
+    [ProjectTag.PixelArt]: TagCategory.Default,
+    [ProjectTag.Modeling]: TagCategory.Default,
+    [ProjectTag.Csharp]: TagCategory.Default,
+    [ProjectTag.Kivy]: TagCategory.Default,
+    [ProjectTag.PHP]: TagCategory.Default
 };
 
-export const tagsByCategory: Record<Category, ProjectTag[]> = Object.values(Category)
-  .reduce((acc, cat) => {
+export const tagsByCategory: Record<TagCategory, ProjectTag[]> =
+  Object.values(TagCategory).reduce((acc, cat) => {
     acc[cat] = Object.entries(categoryMap)
       .filter(([_, c]) => c === cat)
-      .map(([t]) => Number(t) as unknown as ProjectTag);
+      .map(([t]) => t as ProjectTag);
     return acc;
-  }, {} as Record<Category, ProjectTag[]>);
+  }, {} as Record<TagCategory, ProjectTag[]>);
+
 
 export interface ProjectSection {
     image: string;

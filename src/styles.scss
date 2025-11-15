@@ -21,11 +21,12 @@ body {
         --sidebar-width: 8vh;
     }
 
-    --standard-padding: 12px;
     --slide-padding: 60px;
     --timeline-height: 5vh;
     --about-button-move-distance: 12px;
     --border-thickness: 2px;
+    --standard-padding: 12px;
+    --min-padding: 4px;
 
     /* ---- Rounding ---- */
     --outer-radius: 8px;
@@ -59,13 +60,11 @@ body {
     250,
     255;
 
-    --airhejsdksfadsjlhansldjlajsfniskjdm: rgb(9, 31, 20);
-
     /* ---- Shadows ---- */
     --far-shadow: 0 8px 20px 8px rgba(0, 0, 0, 0.7);
     --near-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.4);
-    --shine: -1px 1px 2px 0px rgba(225, 252, 239, 0.1);
-    --under: 1px -1px 2px 0px rgba(0, 0, 0, 0.2);
+    --shine: 0 0 2px 2px rgba(225, 252, 239, 0.08);
+    --under: 0 -4px 4px 0 rgba(0, 0, 0, 0.2);
 
     /* ---- Animation ---- */
     --button-transition: 0.2s ease-in-out;
@@ -78,6 +77,66 @@ body {
 
     color: rgb(var(--color-text));
     font-size: var(--medium-font-size);
+    
+    /* ---- Dedicated tag group colours ---- */
+
+    .default:not(h1) {
+        border-color: rgb(var(--color-text));
+        color: rgb(var(--color-text));
+    }
+
+    .game-dev:not(h1) {
+        border-color: rgb(196, 100, 209);
+        color: rgb(196, 100, 209);
+    }
+
+    .maker-space:not(h1) {
+        border-color: rgb(226, 67, 112);
+        color: rgb(226, 67, 112);
+    }
+
+    .dev-ops:not(h1) {
+        border-color: rgb(90, 39, 200);
+        color: rgb(90, 39, 200);
+    }
+
+    .web:not(h1) {
+        border-color: rgb(146, 69, 208);
+        color: rgb(146, 69, 208);
+    }
+
+    .data:not(h1) {
+        border-color: rgb(177, 221, 94);
+        color: rgb(177, 221, 94);
+    }
+
+    .default .selected .input, h1.default {
+        background-color: rgb(var(--color-text));
+    }
+
+    .game-dev .selected .input, h1.game-dev {
+        background-color: rgb(196, 100, 209);
+    }
+
+    .maker-space .selected .input, h1.maker-space {
+        background-color: rgb(226, 67, 112);
+    }
+
+    .dev-ops .selected .input, h1.dev-ops {
+        background-color: rgb(90, 39, 200);
+    }
+
+    .web .selected .input, h1.web {
+        background-color: rgb(146, 69, 208);
+    }
+
+    .data .selected .input, h1.data {
+        background-color: rgb(177, 221, 94);
+    }
+
+    h1.default, h1.game-dev, h1.maker-space, h1.dev-ops, h1.web, h1.data {
+        color: rgb(var(--color-layer-2));
+    }
 
     h1 {
         font-weight: 300;

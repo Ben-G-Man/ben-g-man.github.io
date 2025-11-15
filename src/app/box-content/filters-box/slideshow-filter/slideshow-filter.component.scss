@@ -13,19 +13,11 @@
         transition: var(--button-transition);
     }
 
-    &:hover {
-        .text {
-            font-weight: 500;
-            transition: var(--button-transition);
-            margin-top: -4px;
-            margin-bottom: 4px;
-        }
-    }
-
     mat-icon {
         transition: 0.1s;
         line-height: 100%;
         text-align: center;
+        pointer-events: none;
     }
 
     .toggle-button {
@@ -54,4 +46,11 @@
             opacity: 1;
         }
     }
+}
+
+.toggle-button:hover ~ .text {
+    font-weight: 500;
+    transition: var(--button-transition);
+    margin-top: -4px;
+    margin-bottom: 4px;
 }

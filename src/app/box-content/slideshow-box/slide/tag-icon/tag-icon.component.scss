@@ -1,42 +1,19 @@
 .bubble {
     display: inline-block;
+
     width: auto;
-    height: auto;
     min-width: 12.8px;
-    border-width: var(--border-thickness);
-    border-color: rgb(var(--color-text));
-    color: rgb(var(--color-text));
-    border-style: solid;
+    height: calc(var(--small-font-size) + 2 * var(--min-padding));
+    box-sizing: border-box;
+    position: relative;
+
     text-align: center;
-    padding-top: 1px;
-    padding-bottom: 3px;
-    padding-left: 6px;
-    padding-right: 6px;
-    border-radius: 9999px; // Cheap hack to quickly make pill shape
     font-size: var(--small-font-size);
+    line-height: calc(var(--small-font-size) - var(--min-padding));
 
-    &.game-dev {
-        border-color: rgb(196, 100, 209);
-        color: rgb(196, 100, 209);
-    }
-
-    &.maker-space {
-        border-color: rgb(226, 67, 112);
-        color: rgb(226, 67, 112);
-    }
-
-    &.dev-ops {
-        border-color: rgb(90, 39, 200);
-        color: rgb(90, 39, 200);
-    }
-
-    &.web {
-        border-color: rgb(146, 69, 208);
-        color: rgb(146, 69, 208);
-    }
-
-    &.data {
-        border-color: rgb(177, 221, 94);
-        color: rgb(177, 221, 94);
-    }
+    padding: var(--min-padding);
+    
+    border-width: var(--border-thickness);
+    border-style: solid;
+    border-radius: 9999px; // Cheap hack to quickly make pill shape
 }

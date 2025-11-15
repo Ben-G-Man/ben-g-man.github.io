@@ -1,7 +1,7 @@
 <div class="filter" #filter [class.focused]="uiService.isFocused(filter)">
+    <div class="toggle-button" (click)="uiService.toggleFocus(filter)"></div>
     <div class="text">{{label}}</div>
     <mat-icon>arrow_drop_down</mat-icon>
-    <div class="toggle-button" (click)="uiService.toggleFocus(filter)"></div>
     <app-drop-down-container [wide]="wide">
         <ng-content></ng-content>
     </app-drop-down-container>

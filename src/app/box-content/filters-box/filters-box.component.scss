@@ -8,6 +8,99 @@
     align-items: center;
     flex-wrap: wrap;
 
+    .tag-group {
+        border: var(--border-thickness) solid;
+        border-radius: calc(var(--outer-radius) - var(--min-padding));
+
+        app-tag-icon {
+            cursor: pointer;
+        }
+
+        .tag-list {
+            display: flex;
+            padding: var(--min-padding);
+            gap: var(--min-padding);
+            flex-wrap: wrap;
+        }
+
+        &:not(:last-of-type) {
+            margin-bottom: var(--standard-padding);
+        }
+
+        h1 {
+            width: 100%;
+            margin: 0;
+            padding: var(--min-padding);
+            box-sizing: border-box;
+            font-size: var(--medium-font-size);
+            font-weight: 400;
+            padding: var(--min-padding);
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            mat-icon {
+                position: absolute;
+                right: 0;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: var(--button-transition);
+                background-color: rgba(255, 255, 255, 0.4);
+
+                &:last-of-type {
+                    transform: translateX(-100%);
+                    margin-right: var(--min-padding);
+
+                    &:hover {
+                        transition: var(--button-transition);
+                        transform: translateX(-100%) translateY(-2px);
+                    }
+
+                    &:active {
+                        transition: var(--button-click-transition);
+                        transform: translateX(-100%);
+                    }
+                }
+
+                &:not(:last-of-type) {
+                    &:hover {
+                        transition: var(--button-transition);
+                        transform: translateY(-2px);
+                    }
+
+                    &:active {
+                        transition: var(--button-click-transition);
+                        transform: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .slide-nav-button:not(.inactive):hover {
+    mat-icon {
+        transform: translateY(calc(var(--slide-padding) * -0.1));
+    }
+}
+
+.slide-nav-button:not(.inactive):active {
+    mat-icon {
+        transform: translateY(0px);
+        transition: var(--button-click-transition);
+    }
+}
+
+    .input {
+        margin: none;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        border-radius: 99999px;
+        margin-right: var(--min-padding);
+        border: var(--border-thickness) solid;
+        box-sizing: border-box;
+        float: left;
+    }
+
     app-slideshow-filter,
     .text-segment, .alt-text-segment {
         margin-left: var(--standard-padding);

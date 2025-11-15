@@ -3,12 +3,15 @@ import { UiService } from '../../ui.service';
 import { SlideshowService } from '../slideshow-box/slideshow.service';
 import { SlideshowFilterComponent } from "./slideshow-filter/slideshow-filter.component";
 import { DropDownListComponent } from "../../generic/drop-down-list/drop-down-list.component";
-import { ProjectTag } from '../../projects/project.model';
+import { ProjectTag, TagCategory, tagsByCategory } from '../../projects/project.model';
+import { KeyValuePipe } from '@angular/common';
+import { TagIconComponent } from "../slideshow-box/slide/tag-icon/tag-icon.component";
+import { MatIcon } from "@angular/material/icon";
 
 @Component({
     selector: 'app-filters-box',
     standalone: true,
-    imports: [SlideshowFilterComponent, DropDownListComponent],
+    imports: [SlideshowFilterComponent, DropDownListComponent, KeyValuePipe, TagIconComponent, MatIcon],
     templateUrl: './filters-box.component.html',
     styleUrl: './filters-box.component.scss'
 })
@@ -17,15 +20,18 @@ export class FiltersBoxComponent {
 
     /* ---- Tags ---- */
 
+    public TagCategory = TagCategory; // expose enum
+    public tagsByCategory = tagsByCategory;
+    public ProjectTag = ProjectTag;
+
     allTags: ProjectTag[] = Object.values(ProjectTag);
     selectedTags: ProjectTag[] = this.allTags;
 
     toggle(value: ProjectTag, event: Event) {
-        const checked = (event.target as HTMLInputElement).checked;
-        if (checked) {
-            this.selectedTags.push(value);
-        } else {
+        if (this.selectedTags.includes(value)) {
             this.selectedTags = this.selectedTags.filter(v => v !== value);
+        } else {
+            this.selectedTags.push(value);
         }
 
         this.slideshowService.setFilterTags(this.selectedTags);
@@ -77,5 +83,15 @@ export class FiltersBoxComponent {
         }
 
         return text;
+    }
+
+    /* ---- Check and Uncheck ---- */
+
+    addAll(category: TagCategory): void {
+        console.log(category);
+    }
+
+    removeAll(category: TagCategory): void {
+        console.log(category);
     }
 }

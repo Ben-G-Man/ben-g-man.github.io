@@ -5,11 +5,10 @@
     background-color: rgb(var(--color-layer-3));
     display: grid;
     border-radius: var(--outer-radius);
-    box-shadow: inset var(--shine);
+    box-shadow: inset var(--shine), inset var(--under), var(--near-shadow);
     box-sizing: border-box;
     cursor: pointer;
     overflow: hidden;
-    box-shadow: var(--near-shadow);
 }
 
 .read-more {

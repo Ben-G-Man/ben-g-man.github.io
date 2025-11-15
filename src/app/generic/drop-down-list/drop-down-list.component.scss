@@ -13,10 +13,10 @@ li {
     cursor: pointer;
     line-height: calc(var(--medium-font-size) + 6px);
     transition: var(--button-transition);
-    border-radius: var(--outer-radius);
+    border-radius: calc(var(--outer-radius) - var(--min-padding));
 
     &:not(:first-child) {
-        margin-top: var(--standard-padding);
+        margin-top: var(--min-padding);
     }
 
     --color-layer-3-real: rgb(var(--color-layer-3));
