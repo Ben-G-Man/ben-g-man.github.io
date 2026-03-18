@@ -34,8 +34,10 @@ export class UiService {
         return this._focusedElement === element;
     }
 
-    clearFocusIfOutside(target: HTMLElement): void {
-        if (this._focusedElement && !this._focusedElement.contains(target)) {
+    clearFocusIfOutside(target: EventTarget | null): void {
+        if (!(target instanceof HTMLElement) && target != null) return;
+
+        if ((target == null) || (this._focusedElement && !this._focusedElement.contains(target))) {
             this._focusedElement = null;
         }
     }

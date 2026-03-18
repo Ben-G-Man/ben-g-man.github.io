@@ -31,7 +31,7 @@ export class AppComponent {
     ) { }
 
     @HostListener('document:click', ['$event.target'])
-    onDocumentClick(target: HTMLElement): void {
+    onDocumentClick(target: EventTarget | null): void {
         this._uiService.clearFocusIfOutside(target);
     }
 

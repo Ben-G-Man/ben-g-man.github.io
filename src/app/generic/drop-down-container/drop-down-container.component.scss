@@ -25,5 +25,12 @@
             max-height: 70vh;
             overflow: scroll;
         }
+
+        @media(max-width: 799px) {
+            &.wide {
+                width: 60vw;
+                margin-left: 30%;
+            }
+        }
     }
 }

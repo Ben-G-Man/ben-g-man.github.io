@@ -7,6 +7,7 @@ export enum ProjectTag {
     JavaFX = 'JavaFX',
     Cpp = 'C++',
     C = 'C',
+    Go = 'GoLang',
     Python = 'Python',
     Commission = 'Commission',
     University = 'University',
@@ -35,6 +36,9 @@ export enum ProjectTag {
 
     /* -- DevOps -- */
     Docker = 'Docker',
+    DevSpace = 'DevSpace',
+    Kubernetes = 'Kubernetes',
+    GCP = 'GCP',
 
     /* -- Web-Dev -- */
     React = 'React',
@@ -77,6 +81,9 @@ export const categoryMap: Record<ProjectTag, TagCategory> = {
     [ProjectTag.Electrical]: TagCategory.MakerSpace,
 
     [ProjectTag.Docker]: TagCategory.DevOps,
+    [ProjectTag.DevSpace]: TagCategory.DevOps,
+    [ProjectTag.Kubernetes]: TagCategory.DevOps,
+    [ProjectTag.GCP]: TagCategory.DevOps,
 
     [ProjectTag.React]: TagCategory.Web,
     [ProjectTag.Angular]: TagCategory.Web,
@@ -98,6 +105,7 @@ export const categoryMap: Record<ProjectTag, TagCategory> = {
     [ProjectTag.JavaFX]: TagCategory.Default,
     [ProjectTag.Cpp]: TagCategory.Default,
     [ProjectTag.C]: TagCategory.Default,
+    [ProjectTag.Go]: TagCategory.Default,
     [ProjectTag.Python]: TagCategory.Default,
     [ProjectTag.Commission]: TagCategory.Default,
     [ProjectTag.University]: TagCategory.Default,
